@@ -22,7 +22,7 @@ namespace Beauty.Tool
         /// <param name="parent"></param>
         /// <returns></returns>
         public static T GetVisualChild<T>(Visual parent) where T : Visual
-        {
+        {   
             T child = default(T);
             int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
 
