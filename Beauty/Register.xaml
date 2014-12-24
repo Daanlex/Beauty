@@ -1,0 +1,13 @@
+﻿<Window x:Class="Beauty.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="注册" Height="300" Width="300" Icon="/Beauty;component/Image/1.png">
+    <Canvas>
+        <TextBlock Canvas.Left="12" Canvas.Top="25" Height="23" Name="textBlock1" Text="请把号码发给管理员" />
+        <TextBox Canvas.Left="135" Canvas.Top="25" Height="23" Name="tbCpu" Text="" Width="130" />
+        <TextBlock Canvas.Left="12" Canvas.Top="73" Height="23" Name="textBlock2" Text="注册码" />
+        <TextBox Canvas.Left="135" Canvas.Top="70" Height="23" Name="tbRegistCode" Width="130" />
+        <Button Canvas.Left="93" Canvas.Top="138" Content="注册" Height="23" Name="btnRegist" Width="75" />
+        <TextBlock Canvas.Left="24" Canvas.Top="193" Height="34" Name="registeredState" Visibility="Collapsed" Text="您已经注册完毕"  Width="221" FontSize="20" Foreground="#FFF20909" />
+    </Canvas>
+</Window>

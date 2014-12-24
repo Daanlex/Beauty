@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beauty", "Beauty\Beauty.csproj", "{6E9A87A3-D735-4BCF-8A51-621D24419B0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistCode", "RegistCode\RegistCode.csproj", "{2E7510EE-ACC4-4524-BF7F-53C02DC0DB45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E9A87A3-D735-4BCF-8A51-621D24419B0C}.Debug|x86.ActiveCfg = Debug|x86
+		{6E9A87A3-D735-4BCF-8A51-621D24419B0C}.Debug|x86.Build.0 = Debug|x86
+		{6E9A87A3-D735-4BCF-8A51-621D24419B0C}.Release|x86.ActiveCfg = Release|x86
+		{6E9A87A3-D735-4BCF-8A51-621D24419B0C}.Release|x86.Build.0 = Release|x86
+		{2E7510EE-ACC4-4524-BF7F-53C02DC0DB45}.Debug|x86.ActiveCfg = Debug|x86
+		{2E7510EE-ACC4-4524-BF7F-53C02DC0DB45}.Debug|x86.Build.0 = Debug|x86
+		{2E7510EE-ACC4-4524-BF7F-53C02DC0DB45}.Release|x86.ActiveCfg = Release|x86
+		{2E7510EE-ACC4-4524-BF7F-53C02DC0DB45}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

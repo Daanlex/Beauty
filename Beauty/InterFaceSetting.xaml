@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Beauty.InterFaceSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="590" d:DesignWidth="1024">
+    
+    <Canvas>
+        <Canvas Width="1024"  Height="85">
+            <TextBlock  Height="23" Name="textBlock1" Text="接口对应设置" Width="101" Canvas.Left="36" Canvas.Top="6" />
+            <RadioButton Content="Excel" Height="16" GroupName="InterFaceType" Name="ExcelType" Canvas.Left="214" Canvas.Top="7" />
+            <RadioButton Content="数据库" Height="16" GroupName="InterFaceType" Name="OhterDataBaseType" Canvas.Left="360" Canvas.Top="7" />
+            <Canvas Height="53" Width="983" Canvas.Top="26" Canvas.Left="22" Name="DataBaseCanvas">
+                <RadioButton Canvas.Left="74" Canvas.Top="9" Content="MS SQL" GroupName="DataBaseType" Height="16" Name="radioMsSql" Width="88" />
+                <RadioButton Canvas.Left="177" Canvas.Top="9" Content="ORACLE" GroupName="DataBaseType" Height="16" Name="radioOracle" Width="88" />
+                <RadioButton Canvas.Left="283" Canvas.Top="9" Content="MySQL" GroupName="DataBaseType" Height="16" Name="radioMySql" Width="88" />
+                <TextBlock Canvas.Left="6" Canvas.Top="27" Height="23" Text="连接字符串" />
+                <TextBox Canvas.Left="74" Canvas.Top="27" Height="23" Name="tbConnectionString" Width="903" />
+            </Canvas>
+        </Canvas>
+        <Canvas Canvas.Left="0" Canvas.Top="91" Height="495" Width="1024">
+            <TextBlock Canvas.Left="36" Canvas.Top="12" Height="23" Name="textBlock2" Text="字段对应" Width="84" />
+            <TextBlock Canvas.Left="189" Canvas.Top="19" Height="23" Name="textBlock4" Text="病人编号" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="19" Height="23" Name="tbSampleNo" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="47" Height="23" Name="textBlock5" Text="姓名" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="47" Height="23" Name="tbPatientName" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="74" Height="23" Name="textBlock42" Text="性别" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="74" Height="23" Name="tbGender" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="102" Height="23" Name="textBlock6" Text="生日" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="102" Height="23" Name="tbBrithday" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="132" Height="23" Name="textBlock39" Text="年龄" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="132" Height="23" Name="tbAge" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="160" Height="23" Name="textBlock40" Text="住院号" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="160" Height="23" Name="tbHospitalizedNo" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="188" Height="23" Name="textBlock41" Text="床号" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="188" Height="23" Name="tbBadNo" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="216" Height="23" Name="textBlock32" Text="电话" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="216" Height="23" Name="tbPatientTel" Text="" Width="93" />
+            <TextBlock Canvas.Left="189" Canvas.Top="244" Height="23" Name="textBlock33" Text="家庭地址" Width="86" />
+            <TextBox Canvas.Left="281" Canvas.Top="244" Height="23" Name="tbPatientAddress" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="19" Height="23" Name="textBlock8" Text="实验编号" Width="86" />
+            <TextBox  Canvas.Left="516" Canvas.Top="19" Height="23" Name="tbSpecimenNo" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="47" Height="23" Name="textBlock11" Text="采样日期" Width="86" />
+            <TextBox  Canvas.Left="516" Canvas.Top="47" Height="23" Name="tbCollectionDate" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="74" Height="23" Name="textBlock12" Text="体重" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="74" Height="23" Name="tbWGHT" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="102" Height="23" Name="textBlock14" Text="胎儿数量" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="102" Height="23" Name="tbFETU" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="132" Height="23" Name="textBlock19" Text="AFP" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="129" Height="23" Name="tbAFP" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="160" Height="23" Name="textBlock20" Text="HCG" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="157" Height="23" Name="tbHCG" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="188" Height="23" Name="textBlock21" Text="UE3" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="185" Height="23" Name="tbUE3" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="216" Height="23" Name="textBlock36" Text="孕周" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="213" Height="23" Name="tbGestationalWeek" Text="" Width="93" />
+            <TextBlock Canvas.Left="405" Canvas.Top="244" Height="23" Name="textBlock37" Text="B超孕周" Width="86" />
+            <TextBox Canvas.Left="516" Canvas.Top="241" Height="23" Name="tbGestationalWeekByBC" Text="" Width="93" />
+        </Canvas>
+    </Canvas>
+</UserControl>

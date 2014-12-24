@@ -1,0 +1,22 @@
+﻿<Window x:Class="Beauty.Report"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        Title="报告" Icon="/Beauty;component/Image/1.png" WindowState="Normal" ResizeMode="CanMinimize"
+        d:DesignWidth="794" SizeToContent="WidthAndHeight" WindowStartupLocation="Manual"
+        Left="0" Top="0">
+    <ScrollViewer  Name="ScrollViewer1" HorizontalScrollBarVisibility="Hidden"   VerticalScrollBarVisibility="Visible">
+        <Canvas Name="AllCanvas" Height="1120" Width="794">
+                <Image Canvas.Left="7" Canvas.Top="2" Height="33" Name="btnPrint" Stretch="Fill" Width="35" Source="/Beauty;component/Image/2.jpg" />
+                <Menu Canvas.Left="77" Canvas.Top="0" Height="35" Name="menu1" Width="660" >
+                    <MenuItem Header="孕中期报告" x:Name="SecondTrimester"  ></MenuItem>
+                    <MenuItem Header="孕早期报告" x:Name="FirstTrimester" ></MenuItem>
+                </Menu>
+        
+            <Canvas Name="PRINTAREA"   Canvas.Top="34"></Canvas>
+        
+    </Canvas>
+    </ScrollViewer>
+</Window>

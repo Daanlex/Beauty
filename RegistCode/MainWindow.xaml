@@ -1,0 +1,10 @@
+﻿<Window x:Class="RegistCode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Canvas>
+        <TextBox Canvas.Left="63" Canvas.Top="133" Height="57" Name="tbRegistCoed" Width="319" />
+        <Button Canvas.Left="165" Canvas.Top="208" Content="生成注册码" Height="23" Name="btnRegist" Width="75" />
+        <TextBox Canvas.Left="63" Canvas.Top="58" Height="59" Name="tbCpu" Width="319" />
+    </Canvas>
+</Window>

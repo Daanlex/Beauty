@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Beauty.UserSetting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="590" d:DesignWidth="1024">
+    <Canvas Height="590" Width="1024">
+        <DataGrid AutoGenerateColumns="False" Canvas.Left="12" Canvas.Top="25" Height="308"
+                  Name="dgUserSetting" SelectedValuePath="{Binding Path=Id}" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" CanUserAddRows="False" Width="146" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="40" Binding="{Binding Path=DefaultValueNo}" Header="编号" />
+                <DataGridTextColumn Width="100" Binding="{Binding Path=DefaultValueName}" Header="默认值名称" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Canvas.Left="206" Canvas.Top="30" Height="23" Text="编号" Width="97" />
+        <TextBlock Canvas.Left="338" Canvas.Top="30" Height="23" Name="tbDefaultValueNo" Width="292" />
+        <TextBlock Canvas.Left="206" Canvas.Top="73" Height="23" Text="默认值名称" Width="97" />
+        <TextBox Canvas.Left="338" Canvas.Top="73" Height="23" Name="tbDefaultValueName" Width="292" />
+        <TextBlock Canvas.Left="206" Canvas.Top="116" Height="23" Text="上限值或默认值" Width="97" />
+        <TextBox Canvas.Left="338" Canvas.Top="116" Height="23" Name="tbUpperValueOrDefaultValue" Width="292" />
+        <TextBlock Canvas.Left="206" Canvas.Top="159" Height="23" Text="下限值" Width="97" />
+        <TextBox Canvas.Left="338" Canvas.Top="159" Height="23" Name="tbLowerValue" Width="292" />
+        <TextBlock Canvas.Left="206" Canvas.Top="202" Height="23" Visibility="Collapsed" Text="预留" Width="97" />
+        <TextBox Canvas.Left="338" Canvas.Top="202" Height="23" Visibility="Collapsed" Name="tbReserved" Width="120" />
+        <Button Canvas.Left="278" Canvas.Top="227" Content="修改" Height="23" Name="btnUpdate" Width="75" />
+    </Canvas>
+</UserControl>
