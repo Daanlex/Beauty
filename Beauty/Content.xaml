@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="565" d:DesignWidth="1024">
+
     <Canvas Height="565">
-        <Rectangle Canvas.Left="2" Canvas.Top="4" Height="532" Name="rectangle1"  Stroke="Black" Width="290" />
+        <Rectangle Canvas.Left="2" Canvas.Top="4" Height="551" Name="rectangle1"  Stroke="Black" Width="290" />
         <TextBlock Canvas.Left="12" Canvas.Top="8" Height="23" Name="textBlock1" Text="开始时间" />
         <TextBlock Canvas.Left="11" Canvas.Top="36" Height="23" Name="textBlock2" Text="结束时间" />
         <DatePicker Canvas.Left="61" Canvas.Top="4" Height="25" Name="dpkStartTime" Width="111" FirstDayOfWeek="Monday" />
@@ -20,7 +21,7 @@
         </ComboBox>
         <Button Canvas.Left="174" Canvas.Top="62" Content="查询" Height="23" Name="btnSearch" Width="93" />
         <DataGrid AutoGenerateColumns="False" IsReadOnly="False" Canvas.Left="6" 
-                  SelectedValuePath="{Binding Path=Id}" Canvas.Top="95" Height="410"  Name="dgPatient" Width="283" CanUserAddRows="False" FrozenColumnCount="3" >
+                  SelectedValuePath="{Binding Path=Id}" Canvas.Top="95" Height="430"  Name="dgPatient" Width="283" CanUserAddRows="False" FrozenColumnCount="3" >
             <DataGrid.Columns>
 
                 <DataGridTemplateColumn     Width="50">
@@ -159,10 +160,10 @@
         <Button Canvas.Left="544" Canvas.Top="530" Content="修改" Height="27" Name="btnUpdateData" Width="75" />
         <Button Canvas.Left="693" Canvas.Top="530" Content="删除" Height="27" Name="btnDeleteData" Width="75" />
         <Button Canvas.Left="847" Canvas.Top="530" Content="预览报告" Height="27" Name="btnPrint" Width="75"  />
-        <Button Canvas.Left="13" Canvas.Top="537" Content="导入Excel" Height="23" Name="btnImportExcel" Width="75" />
-        <Button Canvas.Left="107" Canvas.Top="508" Content="导出Excel" Height="23" Name="btnExportExcel" Width="75" />
-        <Button Canvas.Left="203" Canvas.Top="508" Content="导入Prisca" Height="23" Name="btnImportPrisca" Width="76" />
-        <Button Canvas.Left="10" Canvas.Top="508" Content="批量删除" Height="23" Name="btnBatchDelete" Width="76" />
+        <Button Canvas.Left="284" Canvas.Top="510" Content="导入Excel" Height="23" Name="btnImportExcel" Width="75" />
+        <Button Canvas.Left="107" Canvas.Top="530" Content="导出Excel" Height="23" Name="btnExportExcel" Width="75" />
+        <Button Canvas.Left="203" Canvas.Top="530" Content="导入Prisca" Height="23" Name="btnImportPrisca" Width="76" />
+        <Button Canvas.Left="10" Canvas.Top="530" Content="批量删除" Height="23" Name="btnBatchDelete" Width="76" />
         <Rectangle Canvas.Left="534" Canvas.Top="395" Height="130" Name="rectangle2" Width="428" Stroke="#FFE3E7ED" />
         <TextBlock Canvas.Left="544" Canvas.Top="404" Height="23" Text="AFP修正值" Width="63" />
         <TextBlock Canvas.Left="612" Canvas.Top="404" Height="23" Width="64" Name="AFPCorrMom" Text="" />

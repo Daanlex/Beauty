@@ -24,9 +24,14 @@ namespace Beauty.Tool
         public static string dberrorlog = AppDomain.CurrentDomain.BaseDirectory + "log.txt";
 
         /// <summary>
-        ///  prisca返回的文件
+        ///  prisca返回的文件路径
         /// </summary>
-        public static string priscaBack = @"C:\Program Files\Typolog Software\Prisca4"; //@"C:\LIS_Upload";
+        public static string priscaBack = @"C:\LIS_Upload";
+
+        /// <summary>
+        /// 写入prisca文件的路径
+        /// </summary>
+        public static string priscaGo = @"c:\LIS_DOWNLOAD";
 
         /// <summary>
         /// prisca返回的文件，在处理后备份路径
@@ -36,7 +41,7 @@ namespace Beauty.Tool
         /// <summary>
         /// 软件试用到期时间
         /// </summary>
-        public static DateTime softwareExpireDate = DateTime.Parse("2014-06-30");
+        public static DateTime softwareExpireDate = DateTime.Parse("2015-06-30");
 
         /// <summary>
         /// 导出文件路径

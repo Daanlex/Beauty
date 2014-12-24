@@ -981,7 +981,7 @@ namespace Beauty
         /// <param name="sampleNo">样本号</param>
         private void WriterPrisca(string content,string sampleNo)
         {
-            const string path = @"c:\LIS_DOWNLOAD";
+            string path = ConfigString.priscaGo; //@"c:\LIS_DOWNLOAD";
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
