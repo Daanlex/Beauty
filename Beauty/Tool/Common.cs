@@ -23,7 +23,7 @@ namespace Beauty.Tool
         /// <returns></returns>
         public static T GetVisualChild<T>(Visual parent) where T : Visual
         {   
-            //感觉如何
+            //感觉如何11
             T child = default(T);
             int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
 
