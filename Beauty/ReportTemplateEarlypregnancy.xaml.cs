@@ -10,12 +10,13 @@ namespace Beauty
     /// <summary>
     /// ReportTemplate2.xaml 的交互逻辑
     /// </summary>
-    public partial class ReportTemplate2
+    public partial class ReportTemplateEarlypregnancy
     {
-        public ReportTemplate2(Patient p, MomRisk m, List<UserSettingMd> defaultValue)
+        public ReportTemplateEarlypregnancy(Patient p, MomRisk m, List<UserSettingMd> defaultValue)
         {
             InitializeComponent();
-            ChartTest.Background = new SolidColorBrush(Color.FromArgb(1, 255, 255, 255));
+            
+            //ChartTest.Background = new SolidColorBrush(Color.FromArgb(1, 255, 255, 255));
             SetValueToReport(p, m, defaultValue);
         }
 
@@ -31,7 +32,7 @@ namespace Beauty
             dtpBirthday.Text = p.Birthday == new DateTime() ? "" : p.Birthday.ToShortDateString();
             tbAge.Text = p.Age.ToString();
             //tbCensorshipDoctor.Text = p.CensorshipDoctor;
-            tbCensorshipDoctor.Text = p.TestLMPDate == new DateTime() ? "" : p.TestLMPDate.ToShortDateString();
+            tbSpecimenNo.Text = p.SpecimenNo;
             tbSampleNo.Text = p.SampleNo;
             dtpCollectionDate.Text = p.CollectionDate == new DateTime() ? "" : p.CollectionDate.ToShortDateString();
             tbWGHT.Text = p.Weight.ToString();
@@ -69,44 +70,58 @@ namespace Beauty
 
             if (m != null)
             {
+                tbAgeDelivery.Text = m.AgeDelivery.ToString("0.0");
                 //修正值和风险
                 tbAFPMom.Text = m.AFPCorrMom.ToString();
                 tbUE3Mom.Text = m.UE3CorrMom.ToString();
-                tbHCGMom.Text =  m.HCGCorrMom.ToString();
-                tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD!=0 ? (m.GAWD.ToString().IndexOf('.')<0?m.GAWD.ToString()+"周": m.GAWD.ToString().Replace(".", "周") + "天")  : p.GestationalWeek;
+                tbHCGMom.Text = m.HCGCorrMom.ToString();
+                tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD != 0 ? (m.GAWD.ToString().IndexOf('.') < 0 ? m.GAWD.ToString() + "周" : m.GAWD.ToString().Replace(".", "周") + "天") : p.GestationalWeek;
 
                 tbAR21Risk.Text = "1:" + m.AR21;
-                tbAgeRisk.Text = "1:" + m.AgeRisk2;
-                tbAR21RiskDesc.Text = string.Format(tbAR21RiskDesc.Text, m.AR21 <= 250 ? "高于" : "低于", m.AR21 <= 250 ? "高" : "低");
-                tbAR21SampleCount.Text = string.Format(tbAR21SampleCount.Text, m.AR21, m.AR21 - 1);
-                tbNTDRisk.Text = string.Format(tbNTDRisk.Text, m.AFPCorrMom, m.AFPCorrMom > Convert.ToDouble(func(1, "Up")) ? "高" : "低");
-                tbAFPRef2.Text = string.Format(tbAFPRef2.Text, func(1, "Up"));
-                tbAR18RiskDesc.Text = string.Format(tbAR18RiskDesc.Text, m.AR18, m.AR18 <= 100 ? "高" : "低");
+                tbAR18Risk.Text = "1:" + m.AR18;
+                tbNtRisk.Text = m.AFPCorrMom.ToString();
+                tbAgeRisk.Text = m.AgeDelivery.ToString("0.0");
+                tbAR21RiskCu.Text = m.AR21 <= 270 ? "高风险" : "低风险";
+                tbAR18RiskCu.Text = m.AR18 <= 350 ? "高风险" : "低风险";
+                tbNtRiskCu.Text = m.AFPCorrMom > Convert.ToDouble(func(1, "Up")) ? "高风险" : "低风险";
+                tbAgeRiskCu.Text = m.AgeDelivery > 35 ? "高风险" : "低风险";
+                tbAr21RiskDesc.Text = string.Format(tbAr21RiskDesc.Text,
+                    m.AR21 <= 270 ? "高风险，建议您立即做产前诊断及遗传咨询。" : "低风险，建议动态观察。");
 
 
                 //生成柱状图片
-                RiskChartValue.XValue = m.AgeDelivery;
-                RiskChartValue.YValue = GetAfterCalculatingRisk21(m.AR21);
+                Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
+                Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
+                NtChartDataPoint.YValue = m.AFPCorrMom;
+                AgeChartDataPoint.YValue = m.AgeDelivery;
             }
         }
 
-        /// <summary>
-        /// 因为要根据坐标重新计算21三体的风险，所以...
-        /// </summary>
-        /// <param name="ar21">真实的21三体的风险</param>
-        /// <returns></returns>
-        private double GetAfterCalculatingRisk21(double ar21)
+        private double CalculatRisk(RiskType riskType, double riskVal)
         {
-            double currentRisk=0;
-            if (ar21 <= 10000 & ar21 > 1000)
-                currentRisk = (10000-ar21)*(1150.0/9000.0);
-            if (ar21 <= 1000 & ar21 > 250)
-                currentRisk =2000+ (1000- ar21)*(1950.0/750.0);
-            if (ar21 <= 250 & ar21 > 100)
-                currentRisk = 4500 + (250- ar21)*(1450.0/150.0);
-            if (ar21 <= 100 & ar21 > 10)
-                currentRisk = 6000+ (100- ar21)*(3150.0/90.0);
-            return currentRisk;
+            double resultVal = 0;
+            double upProportion, downProportion;
+            switch (riskType)
+            {
+                case RiskType.Ar21:
+                    upProportion = 30.0 / 270;
+                    downProportion = 30.0 / (10000 - 270);
+                    if (riskVal > 270)
+                        resultVal = 270 - (riskVal * downProportion);
+                    else
+                        resultVal = 300 - riskVal * upProportion;
+                    break;
+                case RiskType.Ar18:
+                    upProportion = 30.0 / 350;
+                    downProportion = 30.0 / (200000 - 350);
+                    if (riskVal > 270)
+                        resultVal = 350 - (riskVal * downProportion);
+                    else
+                        resultVal = 380 - riskVal * upProportion;
+                    break;
+            }
+            return resultVal;
         }
     }
+
 }

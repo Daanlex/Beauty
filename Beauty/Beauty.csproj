@@ -124,8 +124,11 @@
     <Compile Include="Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportTemplate2.xaml.cs">
-      <DependentUpon>ReportTemplate2.xaml</DependentUpon>
+    <Compile Include="ReportTemplateEarlypregnancy.xaml.cs">
+      <DependentUpon>ReportTemplateEarlypregnancy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReportTemplateSecondtrimester.xaml.cs">
+      <DependentUpon>ReportTemplateSecondtrimester.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SerialPorts\SerialPortUtil.cs" />
@@ -139,9 +142,6 @@
     <Compile Include="Tool\ResourceHelper.cs" />
     <Compile Include="UserSetting.xaml.cs">
       <DependentUpon>UserSetting.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ReportTemplate.xaml.cs">
-      <DependentUpon>ReportTemplate.xaml</DependentUpon>
     </Compile>
     <Page Include="Content.xaml">
       <SubType>Designer</SubType>
@@ -179,17 +179,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReportTemplate2.xaml">
+    <Page Include="ReportTemplateEarlypregnancy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReportTemplateSecondtrimester.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ReportTemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +223,8 @@
     <Content Include="dll\WPFVisifire.Charts.dll" />
     <Content Include="dll\Xceed.Wpf.DataGrid.dll" />
     <Content Include="dll\Xceed.Wpf.Toolkit.dll" />
+    <Resource Include="Image\tablebackgroup.png" />
+    <Resource Include="Image\defaultbarcode.png" />
     <Resource Include="Image\qh_hszyy_log.jpg" />
     <Resource Include="Image\TSRisk2.jpg" />
     <Resource Include="Image\jisuan.png" />

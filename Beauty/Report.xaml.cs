@@ -26,12 +26,12 @@ namespace Beauty
             SecondTrimester.Click += (s, e) =>
             {
                 PRINTAREA.Children.Clear();
-                PRINTAREA.Children.Add(new ReportTemplate2(patient, momRisk, userSetting));
+                PRINTAREA.Children.Add(new ReportTemplateSecondtrimester(patient, momRisk, userSetting));
             };
             FirstTrimester.Click += (s, e) =>
             {
                 PRINTAREA.Children.Clear();
-                PRINTAREA.Children.Add(new ReportTemplate(patient, momRisk, userSetting));
+                PRINTAREA.Children.Add(new ReportTemplateEarlypregnancy(patient, momRisk, userSetting));
             };
             btnPrint.MouseLeftButtonDown += (s, e) => Common.PrintReport(PRINTAREA, patient.PatientName,patient.Id);
             //测试取所有打印机
@@ -50,9 +50,9 @@ namespace Beauty
             //默认加载孕中期报告
             PRINTAREA.Children.Clear();
             if(patient.TestType == 5)
-                 PRINTAREA.Children.Add( new ReportTemplate(patient, momRisk, userSetting));
+                 PRINTAREA.Children.Add( new ReportTemplateEarlypregnancy(patient, momRisk, userSetting));
             else 
-                PRINTAREA.Children.Add( new ReportTemplate2(patient, momRisk, userSetting));
+                PRINTAREA.Children.Add( new ReportTemplateSecondtrimester(patient, momRisk, userSetting));
 
             //var secondTrimesterReport1 = new ReportTemplate2(patient, momRisk, userSetting);
             //AllCanvas.Height = 1070*2;

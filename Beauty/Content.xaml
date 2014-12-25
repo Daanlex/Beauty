@@ -42,7 +42,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBlock Canvas.Left="308" Canvas.Top="8" Height="23" Name="textBlock4" Text="病人编号" Width="86" />
+        <TextBlock Canvas.Left="308" Canvas.Top="8" Height="23" Name="textBlock4" Text="门诊号ID" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="8" Height="23" Name="tbSampleNo" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="36" Height="23" Name="textBlock5" Text="姓名" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="36" Height="23" Name="tbPatientName" Text="" Width="109" BorderBrush="#FFF01616" />
@@ -72,7 +72,7 @@
         <ComboBox Canvas.Left="400" Canvas.Top="289" Height="23" IsEditable="True"  Name="cbDoctor" Width="110" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="318" Height="23" Name="textBlock43" Text="送检单位" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="318" Height="23" Name="tbCensorshipDepartments" Text="" Width="109" />
-        <TextBlock Canvas.Left="308" Canvas.Top="347" Height="23" Name="textBlock8" Text="实验编号" Width="86" />
+        <TextBlock Canvas.Left="308" Canvas.Top="347" Height="23" Name="textBlock8" Text="样本编号" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="347" Height="23" Name="tbSpecimenNo" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="376" Height="23" Name="textBlock9" Text="组合项目名称" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="376" Height="23" Name="tbTestName" Text="" Width="109" BorderBrush="#FFF01616" />
