@@ -63,7 +63,7 @@ namespace Beauty
 
                 tbAR21Risk.Text = "1:" + m.AR21;
                 tbAR18Risk.Text = "1:" + m.AR18;
-                tbEsBioRisk.Text = "1" + m.EsBiochemicalMarkers;
+                tbEsBioRisk.Text = "1:" + m.EsBiochemicalMarkers;
                 tbAgeRisk.Text = m.AgeDelivery.ToString("0.0");
                 tbAR21RiskCu.Text = m.AR21 <= 270 ? "高风险" : "低风险";
                 tbAR18RiskCu.Text = m.AR18 <= 350 ? "高风险" : "低风险";

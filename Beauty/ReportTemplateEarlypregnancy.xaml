@@ -164,11 +164,11 @@
         <TextBlock Canvas.Left="250" Canvas.Top="601" Height="22" Text="" x:Name="tbAR18RiskCu" TextAlignment="Center" Width="145" />
 
 
-        <TextBlock Canvas.Left="390" TextWrapping="Wrap" Text="270" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock Canvas.Left="384" TextWrapping="Wrap" Text="1:270" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
         <Image Height="143" Canvas.Left="420" Canvas.Top="411" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
         <vc:Chart Name="EsBioChat"  DataPointWidth="30"  BorderThickness="0"  
                   AnimationEnabled="False" Background="Transparent"
-                  Width="136" Height="157" Canvas.Left="412" Canvas.Top="405">
+                  Width="136" Height="157" Canvas.Left="412" Canvas.Top="405" RenderTransformOrigin="0.526,0.482">
             <vc:Chart.PlotArea>
                 <vc:PlotArea Opacity="0" BorderBrush="Black" BorderThickness="1" ShadowEnabled="False" >
                 </vc:PlotArea>
