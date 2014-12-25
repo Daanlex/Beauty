@@ -129,6 +129,7 @@ namespace Beauty
         Ar21,
         Ar18,
         Nt,
-        Age
+        Age,
+        EsBio
     }
 }

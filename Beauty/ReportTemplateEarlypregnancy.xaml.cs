@@ -63,11 +63,11 @@ namespace Beauty
 
                 tbAR21Risk.Text = "1:" + m.AR21;
                 tbAR18Risk.Text = "1:" + m.AR18;
-                tbNtRisk.Text = m.EsBiochemicalMarkers.ToString();
+                tbEsBioRisk.Text = "1" + m.EsBiochemicalMarkers;
                 tbAgeRisk.Text = m.AgeDelivery.ToString("0.0");
                 tbAR21RiskCu.Text = m.AR21 <= 270 ? "高风险" : "低风险";
                 tbAR18RiskCu.Text = m.AR18 <= 350 ? "高风险" : "低风险";
-                tbNtRiskCu.Text = m.EsBiochemicalMarkers > 2.5 ? "高风险" : "低风险";
+                tbEsBioRiskCu.Text = m.EsBiochemicalMarkers <= 270 ? "高风险" : "低风险";
                 tbAgeRiskCu.Text = m.AgeDelivery > 35 ? "高风险" : "低风险";
                 tbAr21RiskDesc.Text = string.Format(tbAr21RiskDesc.Text,
                     m.AR21 <= 270 ? "高风险，建议您立即做产前诊断及遗传咨询。" : "低风险，建议动态观察。");
@@ -76,7 +76,7 @@ namespace Beauty
                 //生成柱状图片
                 Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
                 Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
-                NtChartDataPoint.YValue = m.EsBiochemicalMarkers;
+                EsBioChartDataPoint.YValue = CalculatRisk(RiskType.EsBio, m.EsBiochemicalMarkers); 
                 AgeChartDataPoint.YValue = m.AgeDelivery;
             }
         }
@@ -87,7 +87,7 @@ namespace Beauty
             double upProportion, downProportion;
             switch (riskType)
             {
-                case RiskType.Ar21:
+                case RiskType.Ar21 :
                     upProportion = 30.0 / 270;
                     downProportion = 30.0 / (10000 - 270);
                     if (riskVal > 270)
@@ -97,11 +97,19 @@ namespace Beauty
                     break;
                 case RiskType.Ar18:
                     upProportion = 30.0 / 350;
-                    downProportion = 30.0 / (200000 - 350);
+                    downProportion = 30.0 / (1000000 - 350);
                     if (riskVal > 270)
                         resultVal = 350 - (riskVal * downProportion);
                     else
                         resultVal = 380 - riskVal * upProportion;
+                    break;
+                case RiskType.EsBio:
+                    upProportion = 30.0 / 270;
+                    downProportion = 30.0 / (30000 - 270);
+                    if (riskVal > 270)
+                        resultVal = 270 - (riskVal * downProportion);
+                    else
+                        resultVal = 300 - riskVal * upProportion;
                     break;
             }
             return resultVal;

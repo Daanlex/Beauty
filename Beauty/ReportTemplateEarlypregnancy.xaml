@@ -164,9 +164,9 @@
         <TextBlock Canvas.Left="250" Canvas.Top="601" Height="22" Text="" x:Name="tbAR18RiskCu" TextAlignment="Center" Width="145" />
 
 
-        <TextBlock Canvas.Left="390" TextWrapping="Wrap" Text="2.5" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock Canvas.Left="390" TextWrapping="Wrap" Text="270" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
         <Image Height="143" Canvas.Left="420" Canvas.Top="411" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
-        <vc:Chart Name="NtChat"  DataPointWidth="30"  BorderThickness="0"  
+        <vc:Chart Name="EsBioChat"  DataPointWidth="30"  BorderThickness="0"  
                   AnimationEnabled="False" Background="Transparent"
                   Width="136" Height="157" Canvas.Left="412" Canvas.Top="405">
             <vc:Chart.PlotArea>
@@ -181,7 +181,7 @@
                 </vc:Axis>
             </vc:Chart.AxesX>
             <vc:Chart.AxesY>
-                <vc:Axis Enabled="False" AxisMinimum="0.1" AxisMaximum="4.9" Interval="0.8" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False" Margin="0,12,0,-12">
+                <vc:Axis Enabled="False" AxisMinimum="240" AxisMaximum="300" Interval="10" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False" Margin="0,12,0,-12">
                     <vc:Axis.Grids>
                         <vc:ChartGrid Enabled="False" LineColor="Black" LineThickness="1" />
                     </vc:Axis.Grids>
@@ -195,14 +195,14 @@
             <vc:Chart.Series>
                 <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15" Margin="0,12,0,-12">
                     <vc:DataSeries.DataPoints>
-                        <vc:DataPoint x:Name="NtChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="0.3"/>
+                        <vc:DataPoint x:Name="EsBioChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="0.3"/>
                     </vc:DataSeries.DataPoints>
                 </vc:DataSeries>
             </vc:Chart.Series>
         </vc:Chart>
-        <TextBlock Canvas.Left="412" Canvas.Top="555" Height="22" Text="" x:Name="tbNtRisk" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="412" Canvas.Top="555" Height="22" Text="" x:Name="tbEsBioRisk" TextAlignment="Center" Width="145" />
         <TextBlock Canvas.Left="400" Canvas.Top="577" Height="22" Text="生化标志物风险+NT" TextAlignment="Center"  Width="162" />
-        <TextBlock Canvas.Left="412" Canvas.Top="601" Height="22" Text="" x:Name="tbNtRiskCu" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="412" Canvas.Top="601" Height="22" Text="" x:Name="tbEsBioRiskCu" TextAlignment="Center" Width="145" />
 
         <TextBlock Canvas.Left="557" TextWrapping="Wrap" Text="35" Canvas.Top="470" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
         <Image Height="143" Canvas.Left="583" Canvas.Top="411" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
