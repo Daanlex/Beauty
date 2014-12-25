@@ -64,7 +64,7 @@ namespace Beauty
             {
                 tbAFPRef.Text = func(1, "Lower") + "-" + func(1, "Up") + "MOM";
                 tbHCGRef.Text = func(2, "Lower") + "-" + func(2, "Up") + "MOM";
-                tbUE3Ref.Text = func(1, "Lower") + "-" + func(3, "Up") + "MOM";
+                tbUE3Ref.Text = func(3, "Lower") + "-" + func(3, "Up") + "MOM";
             }
 
 
