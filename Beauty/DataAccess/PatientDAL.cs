@@ -176,7 +176,9 @@ namespace Beauty.DataAccess
                                         TestDate,
                                         TestValue,
                                         CreateDate,
-                                        IsImportPrisca) 
+                                        IsImportPrisca,
+                                        OtherInformation,
+                                        IsHaveNasalBone) 
                                         values (
                                         @SampleNo,
                                         @PatientName,
@@ -221,7 +223,9 @@ namespace Beauty.DataAccess
                                         @TestDate,
                                         @TestValue,
                                         @CreateDate,
-                                        @IsImportPrisca)", new
+                                        @IsImportPrisca, 
+                                        @OtherInformation,
+                                       @IsHaveNasalBone)", new
                             {
                                 SampleNo = patient.SampleNo,
                                 PatientName = patient.PatientName,
@@ -266,7 +270,9 @@ namespace Beauty.DataAccess
                                 TestDate = patient.TestDate,
                                 TestValue = patient.TestValue,
                                 CreateDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                                IsImportPrisca = 0
+                                IsImportPrisca = 0,
+                                OtherInformation = patient.OtherInformation,
+                                IsHaveNasalBone  = patient.IsHaveNasalBone
                             }, transaction);
 
                         //判断是是否添加送检医生

@@ -65,9 +65,11 @@
         <TextBox Canvas.Left="400" Canvas.Top="205" Height="23" Name="tbPatientTel" Text="" Width="109" />
         <TextBlock Canvas.Left="308" Canvas.Top="233" Height="23" Name="textBlock33" Text="家庭地址" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="233" Height="23" Name="tbPatientAddress" Text="" Width="109" />
-        <TextBlock Canvas.Left="308" Canvas.Top="262" Height="23" Name="textBlock7" Text="医院名称" Width="86" />
-        <TextBox Canvas.Left="400" Canvas.Top="262" Height="23" Name="tbHospName" Text="" Width="109" />
-        <TextBlock Canvas.Left="308" Canvas.Top="290" Height="23" Name="textBlock35" Text="送检医生" Width="86" />
+        <TextBlock Canvas.Left="308" Canvas.Top="262" Height="23"  Text="其他" Width="86" />
+        <TextBox Canvas.Left="400" Canvas.Top="262" Height="23" Name="tbOtherInfomation" Text="" Width="109" />
+        <TextBlock Canvas.Left="308" Canvas.Top="262" Height="23"  Text="医院名称" Visibility="Hidden" Width="86" />
+        <TextBox Canvas.Left="400" Canvas.Top="262" Height="23" Name="tbHospName" Visibility="Hidden" Text="" Width="109" />
+        <TextBlock Canvas.Left="308" Canvas.Top="290" Height="23" Text="送检医生" Width="86" />
         <!--<TextBox Canvas.Left="400" Canvas.Top="290" Height="23" Name="tbCensorshipDoctor" Text="" Width="109" />-->
         <ComboBox Canvas.Left="400" Canvas.Top="289" Height="23" IsEditable="True"  Name="cbDoctor" Width="110" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="318" Height="23" Name="textBlock43" Text="送检单位" Width="86" />
@@ -82,8 +84,13 @@
         <DatePicker Canvas.Left="400" Canvas.Top="434" Height="25" Name="dtpCollectionDate" Width="109" BorderBrush="#FFF01616" FirstDayOfWeek="Monday" />
         <TextBlock Canvas.Left="309" Canvas.Top="464" Height="23" Name="textBlock12" Text="体重(Kg)" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="464" Height="23" Name="tbWGHT" Text="" Width="109" BorderBrush="#FFF01616" />
-        <TextBlock Canvas.Left="549" Canvas.Top="6" Height="23" Name="textBlock14" Text="胎儿数量" Width="86" />
-        <TextBox Canvas.Left="640" Canvas.Top="6" Height="23" Name="tbFETU" Text="" Width="109" BorderBrush="#FFF01616" />
+        <TextBlock Canvas.Left="309" Canvas.Top="492" Height="23" Name="textBlock14" Text="胎儿数量" Width="86" />
+        <TextBox Canvas.Left="400" Canvas.Top="492" Height="23" Name="tbFETU" Text="" Width="109" BorderBrush="#FFF01616" />
+        <TextBlock Canvas.Left="547" Canvas.Top="8" Height="23"  Text="是否有鼻骨" Width="86" />
+        <ComboBox Canvas.Left="640" Canvas.Top="8" Height="23" Name="cbIsHaveNasalBone" Width="109" BorderBrush="#FFF01616">
+            <ComboBoxItem Content="无" DataContext="{Binding}" />
+            <ComboBoxItem Content="有" />
+        </ComboBox>
         <TextBlock Canvas.Left="548" Canvas.Top="35" Height="23" Name="textBlock15" Text="是否吸烟" Width="86" />
         <ComboBox Canvas.Left="640" Canvas.Top="35" Height="23" Name="cbSMOK" Width="109" BorderBrush="#FFF01616">
             <ComboBoxItem Content="否" DataContext="{Binding}" />
@@ -160,7 +167,7 @@
         <Button Canvas.Left="544" Canvas.Top="530" Content="修改" Height="27" Name="btnUpdateData" Width="75" />
         <Button Canvas.Left="693" Canvas.Top="530" Content="删除" Height="27" Name="btnDeleteData" Width="75" />
         <Button Canvas.Left="847" Canvas.Top="530" Content="预览报告" Height="27" Name="btnPrint" Width="75"  />
-        <Button Canvas.Left="284" Canvas.Top="510" Content="导入Excel" Height="23" Name="btnImportExcel" Width="75" />
+        <Button Canvas.Left="297" Canvas.Top="528" Content="导入Excel" Height="23" Name="btnImportExcel" Width="75" />
         <Button Canvas.Left="107" Canvas.Top="530" Content="导出Excel" Height="23" Name="btnExportExcel" Width="75" />
         <Button Canvas.Left="203" Canvas.Top="530" Content="导入Prisca" Height="23" Name="btnImportPrisca" Width="76" />
         <Button Canvas.Left="10" Canvas.Top="530" Content="批量删除" Height="23" Name="btnBatchDelete" Width="76" />

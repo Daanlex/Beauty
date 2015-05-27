@@ -220,6 +220,16 @@ namespace Beauty.Model
         public string PrintCount { get; set; }
 
         /// <summary>
+        /// 其他
+        /// </summary>
+        public string OtherInformation { get; set; }
+
+        /// <summary>
+        /// 是否有鼻骨
+        /// </summary>
+        public Int64 IsHaveNasalBone { get; set; }
+
+        /// <summary>
         /// 当前样本的风险
         /// </summary>
         public MomRisk momrisk { get; set; }

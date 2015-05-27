@@ -7,93 +7,89 @@
              mc:Ignorable="d" 
              Background="White"
              d:DesignHeight="1070" d:DesignWidth="790" FontSize="14">
-    <Canvas  Width="790" >
-        <TextBlock Canvas.Left="58" Canvas.Top="23" Height="23" Name="rTitle" Text="第四军医大学唐都医院" Width="654"  FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
-        <TextBlock Canvas.Left="58" Canvas.Top="55" Height="23" Name="rSubTitle" Text="产 检 筛 查 报 告 单" Width="654" FontWeight="Bold" FontSize="18" TextAlignment="Center" />
-        <TextBlock Canvas.Left="70" Canvas.Top="133" Height="23" Name="textBlock5" Text="姓名:" Width="60" />
-        <TextBlock Canvas.Left="136" Canvas.Top="133" Height="23" Name="tbPatientName" Text="" Width="80" />
-        <TextBlock Canvas.Left="71" Canvas.Top="96" Height="23" Name="textBlock8" Text="门诊号ID:" Width="60" />
-        <TextBlock Canvas.Left="147" Canvas.Top="96" Height="23" Name="tbSampleNo" Text="" Width="80"  />
-        <Image Height="23" Canvas.Left="317" Canvas.Top="95" Width="140" Source="/Image/defaultbarcode.png"/>
-        <TextBlock Canvas.Left="556" Canvas.Top="96" Height="23"  Text="样本编号:" Width="60" />
-        <TextBlock Canvas.Left="632" Canvas.Top="96" Height="23" Name="tbSpecimenNo" Text="" Width="80"  />
-        <TextBlock Canvas.Left="247" Canvas.Top="254" Height="23" Name="textBlock4" FontWeight="Bold" FontSize="15" Text="检验结果" Width="79" />
-        <TextBlock Canvas.Left="230" Canvas.Top="133" Height="23" Name="textBlock6" Text="生日:" Width="60" />
-        <TextBlock Canvas.Left="298" Canvas.Top="133" Height="23" Name="dtpBirthday" Width="80"  />
-        <TextBlock Canvas.Left="399" Canvas.Top="133" Height="23" Name="textBlock39" Text="年龄:" Width="60" />
-        <TextBlock Canvas.Left="464" Canvas.Top="133" Height="23" Name="tbAge" Text="" Width="80" />
-        <TextBlock Canvas.Left="70" Canvas.Top="218" Height="23" Name="textBlock11" Text="采样日期:" Width="60" />
-        <TextBlock Canvas.Left="136" Canvas.Top="218" Height="25" Name="dtpCollectionDate" Width="80"  />
-        <TextBlock Canvas.Left="70" Canvas.Top="162" Height="23" Name="textBlock12" Text="体重(KG):" Width="60" />
-        <TextBlock Canvas.Left="136" Canvas.Top="162" Height="23" Name="tbWGHT" Text="" Width="80" />
-        <TextBlock Canvas.Left="230" Canvas.Top="162" Height="23"  Text="预产年龄:" Width="60" />
-        <TextBlock Canvas.Left="298" Canvas.Top="162" Height="23" Name="tbAgeDelivery" Text="" Width="80" />
+    <Canvas   Width="790" Margin="0,1,0,-1" >
+        <TextBlock Canvas.Left="58" Canvas.Top="10" Height="23" Name="rTitle" Text="第四军医大学唐都医院" Width="654"  FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
+        <TextBlock Canvas.Left="58" Canvas.Top="36" Height="23" Name="rSubTitle" Text="产 检 筛 查 报 告 单" Width="654" FontWeight="Bold" FontSize="18" TextAlignment="Center" />
+        <TextBlock Canvas.Left="70" Canvas.Top="101" Height="23" Name="textBlock5" Text="姓名:" Width="60" />
+        <TextBlock Canvas.Left="136" Canvas.Top="101" Height="23" Name="tbPatientName" Text="" Width="80" />
+        <TextBlock Canvas.Left="71" Canvas.Top="64" Height="23" Name="textBlock8" Text="门诊号ID:" Width="60" />
+        <TextBlock Canvas.Left="147" Canvas.Top="64" Height="23" Name="tbSampleNo" Text="" Width="80"  />
+        <TextBlock Canvas.Left="556" Canvas.Top="64" Height="23"  Text="样本编号:" Width="60" />
+        <TextBlock Canvas.Left="632" Canvas.Top="64" Height="23" Name="tbSpecimenNo" Text="" Width="80"  />
+        <TextBlock Canvas.Left="356" Canvas.Top="222" Height="23" Name="textBlock4" FontWeight="Bold" FontSize="15" Text="检验结果" Width="79" />
+        <TextBlock Canvas.Left="230" Canvas.Top="101" Height="23" Name="textBlock6" Text="生日:" Width="60" />
+        <TextBlock Canvas.Left="298" Canvas.Top="101" Height="23" Name="dtpBirthday" Width="80"  />
+        <TextBlock Canvas.Left="399" Canvas.Top="101" Height="23" Name="textBlock39" Text="年龄:" Width="60" />
+        <TextBlock Canvas.Left="464" Canvas.Top="101" Height="23" Name="tbAge" Text="" Width="80" />
+        <TextBlock Canvas.Left="70" Canvas.Top="186" Height="23" Name="textBlock11" Text="采样日期:" Width="60" />
+        <TextBlock Canvas.Left="136" Canvas.Top="186" Height="25" Name="dtpCollectionDate" Width="80"  />
+        <TextBlock Canvas.Left="70" Canvas.Top="130" Height="23" Name="textBlock12" Text="体重(KG):" Width="60" />
+        <TextBlock Canvas.Left="136" Canvas.Top="130" Height="23" Name="tbWGHT" Text="" Width="80" />
+        <TextBlock Canvas.Left="230" Canvas.Top="130" Height="23"  Text="预产年龄:" Width="60" />
+        <TextBlock Canvas.Left="298" Canvas.Top="130" Height="23" Name="tbAgeDelivery" Text="" Width="80" />
 
-        <TextBlock Canvas.Left="70" Canvas.Top="190" Height="23" Name="textBlock14" Text="胎儿:" Width="60" />
-        <TextBlock Canvas.Left="136" Canvas.Top="190" Height="23" Name="tbFETU" Text="" Width="80"  />
-        <TextBlock Canvas.Left="560" Canvas.Top="190" Height="23" Name="textBlock15" Text="吸烟者:" Width="60" RenderTransformOrigin="0.047,0.478" />
-        <TextBlock Canvas.Left="623" Canvas.Top="190" Height="23" Name="cbSMOK" Width="80" />
+        <TextBlock Canvas.Left="70" Canvas.Top="158" Height="23" Name="textBlock14" Text="胎儿:" Width="60" />
+        <TextBlock Canvas.Left="136" Canvas.Top="158" Height="23" Name="tbFETU" Text="" Width="80"  />
+        <TextBlock Canvas.Left="560" Canvas.Top="158" Height="23" Name="textBlock15" Text="吸烟者:" Width="60" RenderTransformOrigin="0.047,0.478" />
+        <TextBlock Canvas.Left="623" Canvas.Top="158" Height="23" Name="cbSMOK" Width="80" />
 
-        <TextBlock Canvas.Left="230" Canvas.Top="190" Height="23" Name="textBlock16" Text="I V F:" Width="60" />
-        <TextBlock Canvas.Left="298" Canvas.Top="190" Height="23" Name="cbIVF" Width="80" />
+        <TextBlock Canvas.Left="230" Canvas.Top="158" Height="23" Name="textBlock16" Text="I V F:" Width="60" />
+        <TextBlock Canvas.Left="298" Canvas.Top="158" Height="23" Name="cbIVF" Width="80" />
 
-        <TextBlock Canvas.Left="397" Canvas.Top="190" Height="23" Name="textBlock17" Text="糖尿病史:" Width="60" />
-        <TextBlock Canvas.Left="464" Canvas.Top="190" Height="23" Name="cbDIAB" Width="80" />
+        <TextBlock Canvas.Left="397" Canvas.Top="158" Height="23" Name="textBlock17" Text="糖尿病史:" Width="60" />
+        <TextBlock Canvas.Left="464" Canvas.Top="158" Height="23" Name="cbDIAB" Width="80" />
 
-        <TextBlock Canvas.Left="230" Canvas.Top="218" Height="23" Name="textBlock34" Text="送检医生:" Width="60" />
-        <TextBlock Canvas.Left="298" Canvas.Top="218" Height="23" Name="cbDoctor" Width="80" />
-        <TextBlock Canvas.Left="560" Canvas.Top="133" Height="23" Name="textBlock18" Text="人种:" Width="60"  />
-        <TextBlock Canvas.Left="623" Canvas.Top="133" Height="23" Name="cbRAID" Width="80" />
-        <TextBlock Canvas.Left="70" Canvas.Top="296" Height="23"  Name="textBlock19" FontSize="15" Text="PPAP-A" Width="135" />
-        <TextBlock Canvas.Left="247" Canvas.Top="296" Height="23" Name="tbPPAP" Text="" Width="79"  FontSize="15" />
-        <TextBlock Canvas.Left="70" Canvas.Top="348" Height="23" Name="textBlock20"  FontSize="15" Text="NT" Width="135" />
-        <TextBlock Canvas.Left="247" Canvas.Top="348" Height="23" Name="tbNt" Text="" Width="79"  FontSize="15"   />
-        <TextBlock Canvas.Left="70" Canvas.Top="322" Height="23" Name="textBlock21" FontSize="15"  Text="Free-β HCG" Width="135" />
-        <TextBlock Canvas.Left="247" Canvas.Top="322" Height="23" Name="tbBHCG" Text="" Width="79"  FontSize="15"   />
-        <TextBlock Canvas.Left="399" Canvas.Top="162" Height="23" Name="textBlock36" Text="采样孕周:" Width="60" />
-        <TextBlock Canvas.Left="464" Canvas.Top="162" Height="23" Name="tbGestationalWeek" Text="" Width="80" RenderTransformOrigin="0.525,0.87" />
-        <TextBlock Canvas.Left="560" Canvas.Top="162" Height="23" Name="textBlock38" Text="推算方式:" Width="60" />
-        <TextBlock Canvas.Left="623" Canvas.Top="162" Height="23" Name="tbDetermination" Text="" Width="80" />
-        <TextBlock Canvas.Left="327" Canvas.Top="296" Height="23"  FontSize="15"  Text="mIU/mL" Width="56" />
-        <TextBlock Canvas.Left="327" Canvas.Top="322" Height="23"   FontSize="15" Text="ng/mL" Width="56" />
-        <TextBlock Canvas.Left="327" Canvas.Top="348" Height="23"  FontSize="15"  Text="mm" Width="56" />
-        <Line Width="660" Height="2"  Canvas.Left="56" Canvas.Top="123" X1="0" Y1="0"  X2="656" Y2="2" Stroke="Black"  StrokeThickness="10"></Line>
+        <TextBlock Canvas.Left="230" Canvas.Top="186" Height="23" Name="textBlock34" Text="送检医生:" Width="60" />
+        <TextBlock Canvas.Left="298" Canvas.Top="186" Height="23" Name="cbDoctor" Width="80" />
+        <TextBlock Canvas.Left="399" Canvas.Top="186" Height="23"  Text="其他:" Width="60" />
+        <TextBlock Canvas.Left="464" Canvas.Top="186" Height="23" Name="tbOtherInfomation" Width="80" />
+        <TextBlock Canvas.Left="560" Canvas.Top="101" Height="23" Name="textBlock18" Text="人种:" Width="60"  />
+        <TextBlock Canvas.Left="623" Canvas.Top="101" Height="23" Name="cbRAID" Width="80" />
+        <TextBlock Canvas.Left="70" Canvas.Top="261" Height="23"   FontSize="15" Text="PPAP-A 妊娠相关蛋白-A" Width="256" />
+        <TextBlock Canvas.Left="359" Canvas.Top="261" Height="23" Name="tbPPAP" Text="" Width="61"  FontSize="15" />
+        <TextBlock Canvas.Left="70" Canvas.Top="292" Height="23" FontSize="15"  Text="Free-β HCG 游离β人绒毛促性腺激素" Width="256" />
+        <TextBlock Canvas.Left="359" Canvas.Top="292" Height="23" Name="tbBHCG" Text="" Width="61"  FontSize="15"   />
+        <TextBlock Canvas.Left="399" Canvas.Top="130" Height="23" Name="textBlock36" Text="采样孕周:" Width="60" />
+        <TextBlock Canvas.Left="464" Canvas.Top="130" Height="23" Name="tbGestationalWeek" Text="" Width="80" RenderTransformOrigin="0.525,0.87" />
+        <TextBlock Canvas.Left="560" Canvas.Top="130" Height="23" Name="textBlock38" Text="孕周推算:" Width="60" />
+        <TextBlock Canvas.Left="623" Canvas.Top="130" Height="23" Name="tbDetermination" Text="" Width="80" />
+        <TextBlock Canvas.Left="420" Canvas.Top="261" Height="23" Name="textBlock22" FontSize="15"  Text="ng/ml" Width="56" />
+        <TextBlock Canvas.Left="420" Canvas.Top="292" Height="23" Name="textBlock23"  FontSize="15" Text="ng/ml" Width="56" />
+        <Line Width="660" Height="2"  Canvas.Left="56" Canvas.Top="91" X1="0" Y1="0"  X2="656" Y2="2" Stroke="Black"  StrokeThickness="10"></Line>
+        <Line Canvas.Left="56" Canvas.Top="215" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
         <Line Canvas.Left="56" Canvas.Top="247" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
-        <Line Canvas.Left="56" Canvas.Top="279" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
-        <Line Canvas.Left="56" Canvas.Top="377" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
-        <TextBlock Canvas.Left="70" Canvas.Top="254" Height="23"  Text="项目名称" FontWeight="Bold" FontSize="15"  Width="135"  />
-        <TextBlock Canvas.Left="436" Canvas.Top="254" Height="23" Name="textBlock3" FontWeight="Bold" FontSize="15" Text="修正的MoM" Width="88" />
-        <TextBlock Canvas.Left="436" Canvas.Top="296" Height="23" Name="tbPPAPMom"  FontSize="15" Text="" Width="88" />
-        <TextBlock Canvas.Left="436" Canvas.Top="348" Height="23" Name="tbNtMom" FontSize="15"  Text="" Width="88" />
-        <TextBlock Canvas.Left="436" Canvas.Top="322" Height="23" Name="tbBHcgMom" FontSize="15"  Text="" Width="88" />
-        <TextBlock Canvas.Left="618" Canvas.Top="254" Height="23"  Text="参考范围" FontWeight="Bold" FontSize="15" Width="72" />
-        <TextBlock Canvas.Left="618" Canvas.Top="296" Height="23" Name="tbPPAPRef" Text="0.5-2.5" FontSize="15"  Width="63" />
-        <TextBlock Canvas.Left="618" Canvas.Top="322" Height="23" Name="tbBHcgRef" Text="0.5-2.5" FontSize="15"  Width="63" />
-        <TextBlock Canvas.Left="618" Canvas.Top="348" Height="23" Name="tbNtRef"  FontSize="15"  Width="63" />
-        <Line Canvas.Left="56" Canvas.Top="635" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
-        <TextBlock Canvas.Left="70" Canvas.Top="793"  FontSize="15"   Height="94" TextWrapping="WrapWithOverflow" 
-        	Width="632" ><Run Text="提示: "/><LineBreak/><Run Text="（1）高风险只是表明胎儿发生这种先天风险异常的风险比较大，而不是确诊。 "/><LineBreak/><Run Text="（2）低风险只是表明胎儿发生这种先天风险异常的风险比较低，而不能完全排除这种风险或 （3）此结果仅对此检测的样本负责！结果仅供医生参考。      "/></TextBlock>
+        <Line Canvas.Left="56" Canvas.Top="332" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
+        <TextBlock Canvas.Left="70" Canvas.Top="222" Height="23"  Text="项目名称" FontWeight="Bold" FontSize="15"  Width="135"  />
+        <TextBlock Canvas.Left="491" Canvas.Top="222" Height="23" Name="textBlock3" FontWeight="Bold" FontSize="15" Text="修正的MoM" Width="88" />
+        <TextBlock Canvas.Left="507" Canvas.Top="261" Height="23" Name="tbPPAPMom"  FontSize="15" Text="" Width="57" />
+        <TextBlock Canvas.Left="507" Canvas.Top="292" Height="23" Name="tbBHcgMom" FontSize="15"  Text="" Width="57" />
+        <TextBlock Canvas.Left="615" Canvas.Top="222" Height="23"  Text="参考范围" FontWeight="Bold" FontSize="15" Width="72" />
+        <TextBlock Canvas.Left="619" Canvas.Top="261" Height="23" Text="0.5-2.5" FontSize="15"  Width="73" />
+        <TextBlock Canvas.Left="619" Canvas.Top="292" Height="23" Text="0.5-2.5"  FontSize="15"  Width="73" />
+        <Line Canvas.Left="56" Canvas.Top="676" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
+        <TextBlock Canvas.Left="70" Canvas.Top="838"  FontSize="15"   Height="101" TextWrapping="WrapWithOverflow" 
+        	Width="632" ><Run Text="提示: "/><LineBreak/><Run Text="（1）高风险只是表明胎儿发生这种先天风险异常的风险比较大，而不是确诊。 "/><LineBreak/><Run Text="（2）低风险只是表明胎儿发生这种先天风险异常的风险比较低，而不能完全排除这种风险或其他异常的可能性。"/>    <Run Text=""/><LineBreak/><Run Text="（3）此结果仅对此检测的样本负责！结果仅供医生参考。      "/></TextBlock>
         <!--参考范围（≤1/350 ）-->
-        <TextBlock Canvas.Left="483" Canvas.Top="941" FontSize="15" FontWeight="Bold" Height="23" Text="报告日期:" Width="86" />
-        <TextBlock Canvas.Left="585" Canvas.Top="941" FontSize="15" FontWeight="Bold" Height="23" Text="" x:Name="reportDate" Width="102" />
-        <TextBlock Canvas.Left="71" Canvas.Top="941" FontSize="15" FontWeight="Bold" Height="23" Text="检测者:" Width="84" />
-        <TextBlock Canvas.Left="270" Canvas.Top="941" FontSize="15" FontWeight="Bold" Height="23" Text="审核者:" Width="84" />
-        <TextBlock Canvas.Left="70" Canvas.Top="987" Height="26"  TextWrapping="WrapWithOverflow" Width="256" Text="地址：西安市灞桥区新寺路1号"></TextBlock>
+        <TextBlock Canvas.Left="483" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="报告日期:" Width="86" />
+        <TextBlock Canvas.Left="585" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="" x:Name="reportDate" Width="102" />
+        <TextBlock Canvas.Left="71" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="检测者:" Width="84" />
+        <TextBlock Canvas.Left="270" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="审核者:" Width="84" />
+        <TextBlock Canvas.Left="70" Canvas.Top="1021" Height="26"  TextWrapping="WrapWithOverflow" Width="256" Text="地址：西安市灞桥区新寺路1号"></TextBlock>
 
-        <TextBlock Canvas.Left="72" Canvas.Top="384"  FontSize="15"   Height="21"  Text="风险评估结果:" TextWrapping="WrapWithOverflow" Width="171" FontWeight="Bold" />
+        <TextBlock Canvas.Left="72" Canvas.Top="431"  FontSize="15"   Height="21"  Text="风险评估结果:" TextWrapping="WrapWithOverflow" Width="171" FontWeight="Bold" />
 
-        <TextBlock Canvas.Left="57" TextWrapping="Wrap" Text="1:270" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
-        <Image Height="143" Canvas.Left="100" Canvas.Top="411" Width="118" Source="Image/tablebackgroup.png" Stretch="Fill"/>
+        <TextBlock Canvas.Left="76" TextWrapping="Wrap" Text="1:270" Canvas.Top="518" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
+        <Image Height="143" Canvas.Left="119" Canvas.Top="458" Width="118" Source="Image/tablebackgroup.png" Stretch="Fill"/>
         <vc:Chart Name="Ar21Chat"  DataPointWidth="30"  BorderThickness="0"  
                   AnimationEnabled="False" Background="Transparent"
-                  Width="136" Height="157" Canvas.Left="91" Canvas.Top="405">
+                  Width="136" Height="157" Canvas.Left="110" Canvas.Top="452">
 
             <vc:Chart.PlotArea>
                 <vc:PlotArea Opacity="0" BorderBrush="Black" BorderThickness="1" ShadowEnabled="False" >
                 </vc:PlotArea>
             </vc:Chart.PlotArea>
             <vc:Chart.AxesX>
-                <vc:Axis  Enabled="False" AxisMinimum="1"  AxisMaximum="3" Interval="1" Margin="0,31,0,-31"  >
+                <vc:Axis  Enabled="False" AxisMinimum="1"  AxisMaximum="3" Interval="1"  >
                     <vc:Axis.AxisLabels>
                         <vc:AxisLabels Enabled="False" Angle="0" />
                     </vc:Axis.AxisLabels>
@@ -112,35 +108,35 @@
             </vc:Chart.AxesY>
 
             <vc:Chart.Series>
-                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15"  Margin="0,31,0,-31">
+                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15">
                     <vc:DataSeries.DataPoints>
                         <vc:DataPoint x:Name="Ar21ChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="242"/>
                     </vc:DataSeries.DataPoints>
                 </vc:DataSeries>
             </vc:Chart.Series>
         </vc:Chart>
-        <TextBlock Canvas.Left="82" Canvas.Top="555" Height="22" Text="" x:Name="tbAR21Risk" TextAlignment="Center" Width="145" />
-        <TextBlock Canvas.Left="82" Canvas.Top="577" Height="22" Text="唐氏综合征风险率" TextAlignment="Center"  Width="145" />
-        <TextBlock Canvas.Left="82" Canvas.Top="601" Height="22" Text="" x:Name="tbAR21RiskCu" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="101" Canvas.Top="602" Height="22" Text="" x:Name="tbAR21Risk" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="101" Canvas.Top="624" Height="22" Text="唐氏综合征风险率" TextAlignment="Center"  Width="145" />
+        <TextBlock Canvas.Left="101" Canvas.Top="648" Height="22" Text="" x:Name="tbAR21RiskCu" TextAlignment="Center" Width="145" />
 
-        <TextBlock Canvas.Left="227" TextWrapping="Wrap" Text="1:350" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
-        <Image Height="143" Canvas.Left="262" Canvas.Top="411" Width="118" Source="Image/tablebackgroup.png" Stretch="Fill"/>
+        <TextBlock Canvas.Left="297" TextWrapping="Wrap" Text="1:350" Canvas.Top="518" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
+        <Image Height="143" Canvas.Left="334" Canvas.Top="458" Width="118" Source="Image/tablebackgroup.png" Stretch="Fill"/>
         <vc:Chart Name="Ar18Chat"  DataPointWidth="30"  BorderThickness="0"  
                   AnimationEnabled="False" Background="Transparent"
-                  Width="136" Height="157" Canvas.Left="253" Canvas.Top="405">
+                  Width="136" Height="157" Canvas.Left="325" Canvas.Top="452">
             <vc:Chart.PlotArea>
                 <vc:PlotArea Opacity="0" BorderBrush="Black" BorderThickness="1" ShadowEnabled="False" >
                 </vc:PlotArea>
             </vc:Chart.PlotArea>
             <vc:Chart.AxesX>
-                <vc:Axis  Enabled="False" AxisMinimum="1"  AxisMaximum="3" Interval="1" Margin="0,12,0,-12"  >
+                <vc:Axis  Enabled="False" AxisMinimum="1"  AxisMaximum="3" Interval="1" Margin="2,0,-2,0"  >
                     <vc:Axis.AxisLabels>
                         <vc:AxisLabels Enabled="False" Angle="0" />
                     </vc:Axis.AxisLabels>
                 </vc:Axis>
             </vc:Chart.AxesX>
             <vc:Chart.AxesY>
-                <vc:Axis Enabled="False" AxisMinimum="320" AxisMaximum="380" Interval="10" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False" Margin="0,2,0,-2">
+                <vc:Axis Enabled="False" AxisMinimum="320" AxisMaximum="380" Interval="10" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False" Margin="2,0,-2,0">
                     <vc:Axis.Grids>
                         <vc:ChartGrid Enabled="False" LineColor="Black" LineThickness="1" />
                     </vc:Axis.Grids>
@@ -152,63 +148,22 @@
             </vc:Chart.AxesY>
 
             <vc:Chart.Series>
-                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15" Margin="0,12,0,-12">
+                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15" Margin="2,-10,-2,10">
                     <vc:DataSeries.DataPoints>
                         <vc:DataPoint x:Name="Ar18ChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="322"/>
                     </vc:DataSeries.DataPoints>
                 </vc:DataSeries>
             </vc:Chart.Series>
         </vc:Chart>
-        <TextBlock Canvas.Left="250" Canvas.Top="555" Height="22" Text="" x:Name="tbAR18Risk" TextAlignment="Center" Width="145" />
-        <TextBlock Canvas.Left="250" Canvas.Top="577" Height="22" Text="18-三体风险率" TextAlignment="Center"  Width="145" />
-        <TextBlock Canvas.Left="250" Canvas.Top="601" Height="22" Text="" x:Name="tbAR18RiskCu" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="322" Canvas.Top="602" Height="22" Text="" x:Name="tbAR18Risk" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="322" Canvas.Top="624" Height="22" Text="18-三体风险率" TextAlignment="Center"  Width="145" />
+        <TextBlock Canvas.Left="322" Canvas.Top="648" Height="22" Text="" x:Name="tbAR18RiskCu" TextAlignment="Center" Width="145" />
 
-
-        <TextBlock Canvas.Left="384" TextWrapping="Wrap" Text="1:270" Canvas.Top="471" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
-        <Image Height="143" Canvas.Left="420" Canvas.Top="411" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
-        <vc:Chart Name="EsBioChat"  DataPointWidth="30"  BorderThickness="0"  
-                  AnimationEnabled="False" Background="Transparent"
-                  Width="136" Height="157" Canvas.Left="412" Canvas.Top="405" RenderTransformOrigin="0.526,0.482">
-            <vc:Chart.PlotArea>
-                <vc:PlotArea Opacity="0" BorderBrush="Black" BorderThickness="1" ShadowEnabled="False" >
-                </vc:PlotArea>
-            </vc:Chart.PlotArea>
-            <vc:Chart.AxesX>
-                <vc:Axis  Enabled="False" AxisMinimum="1"  AxisMaximum="3" Interval="1" Margin="0,12,0,-12"  >
-                    <vc:Axis.AxisLabels>
-                        <vc:AxisLabels Enabled="False" Angle="0" />
-                    </vc:Axis.AxisLabels>
-                </vc:Axis>
-            </vc:Chart.AxesX>
-            <vc:Chart.AxesY>
-                <vc:Axis Enabled="False" AxisMinimum="240" AxisMaximum="300" Interval="10" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False" Margin="0,12,0,-12">
-                    <vc:Axis.Grids>
-                        <vc:ChartGrid Enabled="False" LineColor="Black" LineThickness="1" />
-                    </vc:Axis.Grids>
-                    <vc:Axis.AxisLabels>
-                        <vc:AxisLabels Enabled="True"  Angle="0" />
-                        <!--ValueFormatString="0:#0;#0;"-->
-                    </vc:Axis.AxisLabels>
-                </vc:Axis>
-            </vc:Chart.AxesY>
-
-            <vc:Chart.Series>
-                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15" Margin="0,12,0,-12">
-                    <vc:DataSeries.DataPoints>
-                        <vc:DataPoint x:Name="EsBioChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="0.3"/>
-                    </vc:DataSeries.DataPoints>
-                </vc:DataSeries>
-            </vc:Chart.Series>
-        </vc:Chart>
-        <TextBlock Canvas.Left="412" Canvas.Top="555" Height="22" Text="" x:Name="tbEsBioRisk" TextAlignment="Center" Width="145" />
-        <TextBlock Canvas.Left="400" Canvas.Top="577" Height="22" Text="生化标志物风险+NT" TextAlignment="Center"  Width="162" />
-        <TextBlock Canvas.Left="412" Canvas.Top="601" Height="22" Text="" x:Name="tbEsBioRiskCu" TextAlignment="Center" Width="145" />
-
-        <TextBlock Canvas.Left="557" TextWrapping="Wrap" Text="35" Canvas.Top="470" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
-        <Image Height="143" Canvas.Left="583" Canvas.Top="411" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
+        <TextBlock Canvas.Left="523" TextWrapping="Wrap" Text="35" Canvas.Top="517" Height="19" Width="39" RenderTransformOrigin="0.5,0.5"/>
+        <Image Height="143" Canvas.Left="549" Canvas.Top="458" Width="120" Source="Image/tablebackgroup.png" Stretch="Fill"/>
         <vc:Chart Name="AgeChat"  DataPointWidth="30"  BorderThickness="0"  
                   AnimationEnabled="False" Background="Transparent"
-                  Width="136" Height="157" Canvas.Left="576" Canvas.Top="405">
+                  Width="136" Height="157" Canvas.Left="542" Canvas.Top="452">
             <vc:Chart.PlotArea>
                 <vc:PlotArea Opacity="0" BorderBrush="Black" BorderThickness="1" ShadowEnabled="False" >
                 </vc:PlotArea>
@@ -233,23 +188,42 @@
             </vc:Chart.AxesY>
 
             <vc:Chart.Series>
-                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15" Margin="-13,12,13,-12">
+                <vc:DataSeries RenderAs="Column"  LegendText="Company A"  Color="#3399ff" LightingEnabled="True" MarkerSize="15">
                     <vc:DataSeries.DataPoints>
                         <vc:DataPoint x:Name="AgeChartDataPoint"   XValue="2"  AxisXLabel="" Color="Gray" YValue="14"/>
                     </vc:DataSeries.DataPoints>
                 </vc:DataSeries>
             </vc:Chart.Series>
         </vc:Chart>
-        <TextBlock Canvas.Left="567" Canvas.Top="555" Height="22" Text="" x:Name="tbAgeRisk" TextAlignment="Center" Width="145" />
-        <TextBlock Canvas.Left="567" Canvas.Top="577" Height="22" Text="母龄风险率" TextAlignment="Center"  Width="145" />
-        <TextBlock Canvas.Left="567" Canvas.Top="601" Height="22" Text="" x:Name="tbAgeRiskCu" TextAlignment="Center" Width="145" />
-        <TextBlock Canvas.Left="70" Canvas.Top="654"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
+        <TextBlock Canvas.Left="533" Canvas.Top="602" Height="22" Text="" x:Name="tbAgeRisk" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="533" Canvas.Top="624" Height="22" Text="母龄风险率" TextAlignment="Center"  Width="145" />
+        <TextBlock Canvas.Left="533" Canvas.Top="648" Height="22" Text="" x:Name="tbAgeRiskCu" TextAlignment="Center" Width="145" />
+        <TextBlock Canvas.Left="70" Canvas.Top="683"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
         	Text="临床建议:" Width="77" />
-        <TextBlock Canvas.Left="70" Canvas.Top="683" x:Name="tbAr21RiskDesc"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
+        <TextBlock Canvas.Left="70" Canvas.Top="712" x:Name="tbAr21RiskDesc"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
         	Text="唐氏综合症{0}" Width="633" />
-        <Line Canvas.Left="56" Canvas.Top="765" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
-        <Line Canvas.Left="56" Canvas.Top="970" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
-        <TextBlock Canvas.Left="542" Canvas.Top="987" Height="26"  TextWrapping="WrapWithOverflow" Width="170" Text="电话：029-84777690"></TextBlock>
+        <TextBlock Canvas.Left="72" Canvas.Top="739" x:Name="tbAr18RiskDesc"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
+        	Text="18-三体综合症{0}" Width="633" />
+        <TextBlock Canvas.Left="70" Canvas.Top="766" x:Name="tbAgeRiskDesc"  FontSize="15"   Height="24" TextWrapping="WrapWithOverflow" 
+        	Text="母龄{0}" Width="633" />
+        <Line Canvas.Left="56" Canvas.Top="829" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
+        <Line Canvas.Left="56" Canvas.Top="983" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
+        <TextBlock Canvas.Left="542" Canvas.Top="1021" Height="26"  TextWrapping="WrapWithOverflow" Width="170" Text="电话：029-84777690"></TextBlock>
+        <Line Canvas.Left="56" Canvas.Top="424" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
+        <TextBlock Canvas.Left="72" Canvas.Top="343"  FontSize="15"   Height="21"  Text="B超信息:" TextWrapping="WrapWithOverflow" Width="83" FontWeight="Bold" />
+        <TextBlock Canvas.Left="70" Canvas.Top="368" Height="23"  FontSize="15" Text="B超日期:" Width="61" />
+        <TextBlock Canvas.Left="131" Canvas.Top="368" Height="23" x:Name="tbbultrasound" Text="" Width="112"  FontSize="15"   />
+        <TextBlock Canvas.Left="297" Canvas.Top="368" Height="23"  FontSize="15" Text="头臀长(CRL):" Width="95" />
+        <TextBlock Canvas.Left="398" Canvas.Top="368" Height="23" x:Name="tbCrl" Text="" Width="49"  FontSize="15"   />
+        <TextBlock Canvas.Left="451" Canvas.Top="368" Height="23"  FontSize="15" Text="mm" Width="30" />
+        <TextBlock Canvas.Left="518" Canvas.Top="368" Height="23"  FontSize="15" Text="双顶颈BPD:" Width="95" />
+        <TextBlock Canvas.Left="619" Canvas.Top="368" Height="23" x:Name="tbBpd" Text="" Width="49"  FontSize="15"   />
+        <TextBlock Canvas.Left="672" Canvas.Top="368" Height="23"  FontSize="15" Text="mm" Width="30" />
+        <TextBlock Canvas.Left="70" Canvas.Top="396" Height="23"  FontSize="15" Text="颈部透明带(NT):" Width="111" />
+        <TextBlock Canvas.Left="185" Canvas.Top="396" Height="23" x:Name="tbNt" Text="" Width="49"  FontSize="15"   />
+        <TextBlock Canvas.Left="239" Canvas.Top="396" Height="23"  FontSize="15" Text="mm" Width="30" />
+        <TextBlock Canvas.Left="297" Canvas.Top="396" Height="23"  FontSize="15" Text="鼻骨:" Width="57" />
+        <TextBlock Canvas.Left="359" Canvas.Top="396" Height="23" x:Name="tbNasalBone" Text="" Width="49"  FontSize="15"   />
 
 
 

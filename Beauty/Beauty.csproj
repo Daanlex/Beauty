@@ -124,6 +124,9 @@
     <Compile Include="Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
     </Compile>
+    <Compile Include="aaa.xaml.cs">
+      <DependentUpon>aaa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReportTemplateEarlypregnancy.xaml.cs">
       <DependentUpon>ReportTemplateEarlypregnancy.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="aaa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ReportTemplateEarlypregnancy.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -224,7 +231,6 @@
     <Content Include="dll\Xceed.Wpf.DataGrid.dll" />
     <Content Include="dll\Xceed.Wpf.Toolkit.dll" />
     <Resource Include="Image\tablebackgroup.png" />
-    <Resource Include="Image\defaultbarcode.png" />
     <Resource Include="Image\qh_hszyy_log.jpg" />
     <Resource Include="Image\TSRisk2.jpg" />
     <Resource Include="Image\jisuan.png" />

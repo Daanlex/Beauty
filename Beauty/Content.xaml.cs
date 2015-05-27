@@ -120,6 +120,7 @@ namespace Beauty
             tbGestationalWeekByBC.Text = "周天";
             cbGender.SelectedIndex = 0; //默认性别女
             tbFETU.Text = "1"; //胎儿数量
+            cbIsHaveNasalBone.SelectedIndex = 0; //是否有鼻骨
             cbSMOK.SelectedIndex = 0; //是否吸烟默认否
             cbIVF.SelectedIndex = 0; //是否体外受孕默认否
             cbDIAB.SelectedIndex = 0; //是否有糖尿病史默认否
@@ -631,6 +632,7 @@ namespace Beauty
             p.BadNo = tbBadNo.Text.Trim();
             p.PatientTel = tbPatientTel.Text.Trim();
             p.PatientAddress = tbPatientAddress.Text.Trim();
+            p.OtherInformation = tbOtherInfomation.Text.Trim();
             p.HospName = tbHospName.Text.Trim();
             p.CensorshipDoctor = cbDoctor.Text.Trim();
             p.CensorshipDepartments = tbCensorshipDepartments.Text.Trim();
@@ -640,6 +642,7 @@ namespace Beauty
             p.CollectionDate = dtpCollectionDate.SelectedDate != null ? (DateTime)dtpCollectionDate.SelectedDate : DateTime.Now;
             p.Weight = Common.IsNumber(tbWGHT.Text.Trim()) ? Convert.ToDouble(tbWGHT.Text.Trim()) : 0;
             p.FETU = Common.IsNumber(tbFETU.Text.Trim()) ? Convert.ToInt32(tbFETU.Text.Trim()) : 0;
+            p.IsHaveNasalBone = Convert.ToInt32(cbIsHaveNasalBone.SelectedIndex);
             p.SMOK = Convert.ToInt32(cbSMOK.SelectedIndex);
             p.IVF = Convert.ToInt32(cbIVF.SelectedIndex);
             p.DIAB = Convert.ToInt32(cbDIAB.SelectedIndex);
@@ -694,6 +697,7 @@ namespace Beauty
             tbBadNo.Text = p.BadNo;
             tbPatientTel.Text = p.PatientTel;
             tbPatientAddress.Text = p.PatientAddress;
+            tbOtherInfomation.Text = p.OtherInformation;
             tbHospName.Text = p.HospName;
             cbDoctor.Text = p.CensorshipDoctor;
             tbCensorshipDepartments.Text = p.CensorshipDepartments;
@@ -705,6 +709,7 @@ namespace Beauty
             tbWGHT.Text = p.Weight.ToString();
 
             tbFETU.Text = p.FETU.ToString();
+            cbIsHaveNasalBone.SelectedIndex = Convert.ToInt32(p.IsHaveNasalBone);
             cbSMOK.SelectedIndex = Convert.ToInt32(p.SMOK);
             cbIVF.SelectedIndex = Convert.ToInt32(p.IVF);
             cbDIAB.SelectedIndex = Convert.ToInt32(p.DIAB);
@@ -856,7 +861,7 @@ namespace Beauty
                                 errorLog.AppendLine("请输入头臀长测量日期和测量的长度");
                         }
 
-                        if (patient.PPAP != 0 || patient.PHCG != 0 || patient.NT != 0)
+                        if (patient.PPAP != 0 || patient.PHCG != 0 )
                         { 
                             if(patient.TestType!=5)
                                 errorLog.AppendLine("您输入的数据是计算孕早期风险的，请勾选计算孕早期风险选项");
