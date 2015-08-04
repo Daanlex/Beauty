@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Printing;
+using System.Windows;
 using System.Windows.Controls;
 using Beauty.Model;
 using Beauty.DataAccess;
@@ -33,14 +34,15 @@ namespace Beauty
                 PRINTAREA.Children.Clear();
                 PRINTAREA.Children.Add(new ReportTemplateEarlypregnancy(patient, momRisk, userSetting));
             };
-            btnPrint.MouseLeftButtonDown += (s, e) => Common.PrintReport(PRINTAREA, patient.PatientName,patient.Id);
+            btnPrint.MouseLeftButtonDown += (s, e) => Common.PrintReport(PRINTAREA, patient.PatientName, patient.Id);
+
             //测试取所有打印机
             //EnumeratedPrintQueueTypes[] enumerationFlags = { EnumeratedPrintQueueTypes.Local, EnumeratedPrintQueueTypes.Shared };
             //LocalPrintServer printServer =new LocalPrintServer();
             //PrintQueueCollection printQueuesOnLocalServer = printServer.GetPrintQueues(enumerationFlags);
             //foreach (PrintQueue printQueue in printQueuesOnLocalServer)
             //{
-                
+
             //}
 
             //隐藏不要的报告单
@@ -49,10 +51,10 @@ namespace Beauty
 
             //默认加载孕中期报告
             PRINTAREA.Children.Clear();
-            if(patient.TestType == 5)
-                 PRINTAREA.Children.Add( new ReportTemplateEarlypregnancy(patient, momRisk, userSetting));
-            else 
-                PRINTAREA.Children.Add( new ReportTemplateSecondtrimester(patient, momRisk, userSetting));
+            if (patient.TestType == 5)
+                PRINTAREA.Children.Add(new ReportTemplateEarlypregnancy(patient, momRisk, userSetting));
+            else
+                PRINTAREA.Children.Add(new ReportTemplateSecondtrimester(patient, momRisk, userSetting));
 
             //var secondTrimesterReport1 = new ReportTemplate2(patient, momRisk, userSetting);
             //AllCanvas.Height = 1070*2;

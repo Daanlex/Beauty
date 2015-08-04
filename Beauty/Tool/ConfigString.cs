@@ -41,7 +41,7 @@ namespace Beauty.Tool
         /// <summary>
         /// 软件试用到期时间
         /// </summary>
-        public static DateTime softwareExpireDate = DateTime.Parse("2015-06-30");
+        public static DateTime softwareExpireDate = DateTime.Parse("2015-08-31");
 
         /// <summary>
         /// 导出文件路径

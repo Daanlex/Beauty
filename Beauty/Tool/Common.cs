@@ -22,7 +22,7 @@ namespace Beauty.Tool
         /// <param name="parent"></param>
         /// <returns></returns>
         public static T GetVisualChild<T>(Visual parent) where T : Visual
-        {   
+        {
             T child = default(T);
             int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
 
@@ -134,12 +134,11 @@ namespace Beauty.Tool
         /// <param name="ui">打印对象</param>
         /// <param name="fileName">文件名</param>
         /// <param name="key">主键</param>
-        public static void PrintReport(Visual ui, string fileName,Int64 key)
+        public static void PrintReport(Visual ui, string fileName, Int64 key)
         {
+            var dialog = new PrintDialog();
             try
             {
-                var dialog = new PrintDialog();
-
                 if (GetAppSettings("IsMemberPrinter") == "0")
                 {
                     if (dialog.ShowDialog() == true)
@@ -148,6 +147,7 @@ namespace Beauty.Tool
                         new PatientDAL().AddPrintCount(key);//增加打印次数
                         UploadSearchAreaHandle(null, null);
                     }
+                    
                 }
                 else if (GetAppSettings("IsMemberPrinter") == "1")
                 {
@@ -163,12 +163,11 @@ namespace Beauty.Tool
                     new PatientDAL().AddPrintCount(key);//增加打印次数
                     UploadSearchAreaHandle(null, null);
                 }
-                
-
             }
             catch (Exception ex)
             {
-                throw ex;
+                WriterErrorLog(ex.Message, ConfigString.dberrorlog);
+                throw;
             }
         }
 

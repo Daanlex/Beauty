@@ -92,7 +92,7 @@ namespace Beauty
                 //生成柱状图片
                 Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
                 Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
-                AgeChartDataPoint.YValue = m.AgeDelivery;
+                AgeChartDataPoint.YValue = CalculatRisk(RiskType.Age, m.AgeDelivery);
             }
         }
 
@@ -125,6 +125,14 @@ namespace Beauty
                         resultVal = 270 - (riskVal * downProportion);
                     else
                         resultVal = 300 - riskVal * upProportion;
+                    break;
+                case RiskType.Age:
+                    upProportion = 18.0/22 ;
+                    downProportion = 14.0 / 18;
+                    if (riskVal <= 41)
+                    {
+
+                    }
                     break;
             }
             return resultVal;

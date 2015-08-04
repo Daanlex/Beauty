@@ -8,8 +8,8 @@
              Background="White"
              d:DesignHeight="1070" d:DesignWidth="790" FontSize="14">
     <Canvas   Width="790" Margin="0,1,0,-1" >
-        <TextBlock Canvas.Left="58" Canvas.Top="10" Height="23" Name="rTitle" Text="第四军医大学唐都医院" Width="654"  FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
-        <TextBlock Canvas.Left="58" Canvas.Top="36" Height="23" Name="rSubTitle" Text="产 检 筛 查 报 告 单" Width="654" FontWeight="Bold" FontSize="18" TextAlignment="Center" />
+        <TextBlock Canvas.Left="58" Canvas.Top="10" Height="29" Name="rTitle" Text="唐都医院妇产科生殖中心" Width="654" FontWeight="Bold"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
+        <TextBlock Canvas.Left="58" Canvas.Top="39" Height="23" Name="rSubTitle" Text="产 检 筛 查 报 告 单" Width="654" FontWeight="Bold" FontSize="18" TextAlignment="Center" />
         <TextBlock Canvas.Left="70" Canvas.Top="101" Height="23" Name="textBlock5" Text="姓名:" Width="60" />
         <TextBlock Canvas.Left="136" Canvas.Top="101" Height="23" Name="tbPatientName" Text="" Width="80" />
         <TextBlock Canvas.Left="71" Canvas.Top="64" Height="23" Name="textBlock8" Text="门诊号ID:" Width="60" />
@@ -74,7 +74,6 @@
         <TextBlock Canvas.Left="585" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="" x:Name="reportDate" Width="102" />
         <TextBlock Canvas.Left="71" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="检测者:" Width="84" />
         <TextBlock Canvas.Left="270" Canvas.Top="993" FontSize="15" FontWeight="Bold" Height="23" Text="审核者:" Width="84" />
-        <TextBlock Canvas.Left="70" Canvas.Top="1021" Height="26"  TextWrapping="WrapWithOverflow" Width="256" Text="地址：西安市灞桥区新寺路1号"></TextBlock>
 
         <TextBlock Canvas.Left="72" Canvas.Top="431"  FontSize="15"   Height="21"  Text="风险评估结果:" TextWrapping="WrapWithOverflow" Width="171" FontWeight="Bold" />
 
@@ -176,7 +175,7 @@
                 </vc:Axis>
             </vc:Chart.AxesX>
             <vc:Chart.AxesY>
-                <vc:Axis Enabled="False" AxisMinimum="13" AxisMaximum="49" Interval="6" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False">
+                <vc:Axis Enabled="False" AxisMinimum="13" AxisMaximum="49" Interval="1" IntervalType="Number"  RenderTransformOrigin="100,100"    Prefix="1:"  Suffix=""  StartFromZero="False">
                     <vc:Axis.Grids>
                         <vc:ChartGrid Enabled="False" LineColor="Black" LineThickness="1" />
                     </vc:Axis.Grids>
@@ -208,7 +207,6 @@
         	Text="母龄{0}" Width="633" />
         <Line Canvas.Left="56" Canvas.Top="829" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
         <Line Canvas.Left="56" Canvas.Top="983" Height="2" Stroke="Black" StrokeThickness="10" Width="656" X1="0" X2="656" Y1="0" Y2="2" />
-        <TextBlock Canvas.Left="542" Canvas.Top="1021" Height="26"  TextWrapping="WrapWithOverflow" Width="170" Text="电话：029-84777690"></TextBlock>
         <Line Canvas.Left="56" Canvas.Top="424" Height="2" Stroke="Black" StrokeThickness="10" Width="660" X1="0" X2="656" Y1="0" Y2="2" />
         <TextBlock Canvas.Left="72" Canvas.Top="343"  FontSize="15"   Height="21"  Text="B超信息:" TextWrapping="WrapWithOverflow" Width="83" FontWeight="Bold" />
         <TextBlock Canvas.Left="70" Canvas.Top="368" Height="23"  FontSize="15" Text="B超日期:" Width="61" />
