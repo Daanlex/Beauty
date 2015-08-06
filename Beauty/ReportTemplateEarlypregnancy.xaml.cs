@@ -127,12 +127,13 @@ namespace Beauty
                         resultVal = 300 - riskVal * upProportion;
                     break;
                 case RiskType.Age:
-                    upProportion = 18.0/22 ;
-                    downProportion = 14.0 / 18;
-                    if (riskVal <= 41)
-                    {
+                    upProportion = 31.0/35 ;
+                    downProportion = 18/14.0;
+                    if (riskVal <= 35)
+                        resultVal = upProportion*riskVal;
+                    else
+                        resultVal = 31+downProportion*(riskVal-35);
 
-                    }
                     break;
             }
             return resultVal;

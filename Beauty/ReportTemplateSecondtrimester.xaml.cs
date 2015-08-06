@@ -109,7 +109,7 @@ namespace Beauty
                 Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
                 Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
                 NtChartDataPoint.YValue = m.AFPCorrMom;
-                AgeChartDataPoint.YValue = m.AgeDelivery;
+                AgeChartDataPoint.YValue = CalculatRisk(RiskType.Age, m.AgeDelivery); 
             }
         }
 
@@ -134,6 +134,15 @@ namespace Beauty
                         resultVal = 350 - (riskVal * downProportion);
                     else
                         resultVal = 380 - riskVal * upProportion;
+                    break;
+                case RiskType.Age:
+                    upProportion = 31.0 / 35;
+                    downProportion = 18 / 14.0;
+                    if (riskVal <= 35)
+                        resultVal = upProportion * riskVal;
+                    else
+                        resultVal = 31 + downProportion * (riskVal - 35);
+
                     break;
             }
             return resultVal;
