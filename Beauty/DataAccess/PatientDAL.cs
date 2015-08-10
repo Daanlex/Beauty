@@ -277,6 +277,9 @@ namespace Beauty.DataAccess
 
                         //判断是是否添加送检医生
                         AddDoctor(con, transaction, patient.CensorshipDoctor);
+
+                        //判断是否添加送检单位
+                        AddSendUnit(con, transaction, patient.CensorshipDepartments);
                         #endregion
                     }
 
@@ -416,6 +419,8 @@ namespace Beauty.DataAccess
                 #endregion
                 //判断是是否添加送检医生
                 AddDoctor(con, transaction, patient.CensorshipDoctor);
+                //判断是否添加送检单位
+                AddSendUnit(con, transaction, patient.CensorshipDepartments);
                 transaction.Commit();
                 flag = true;
             }
@@ -434,6 +439,22 @@ namespace Beauty.DataAccess
                 con.Execute(
                     "update UserSetting set UpperValueOrDefaultValue=@doctorName where DefaultValueNo=5",
                     new { doctorName = doctorName }, transaction);
+            }
+
+        }
+
+        public void AddSendUnit(IDbConnection con, IDbTransaction transaction, string sendUnit)
+        {
+            //先读取
+            string oldSendUnit = con.Query<string>(@"select UpperValueOrDefaultValue from UserSetting where DefaultValueNo=6", transaction).First();
+            oldSendUnit = Encrypt.DecryptDES(oldSendUnit);
+            sendUnit = Encrypt.DecryptDES(sendUnit);
+            if (oldSendUnit.IndexOf(sendUnit, System.StringComparison.Ordinal) == -1)
+            {
+                sendUnit = Encrypt.EncryptDES(oldSendUnit + "," + sendUnit);
+                con.Execute(
+                    "update UserSetting set UpperValueOrDefaultValue=@doctorName where DefaultValueNo=6",
+                    new { doctorName = sendUnit }, transaction);
             }
 
         }

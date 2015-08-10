@@ -92,8 +92,8 @@ namespace Beauty
             tbPatientTel.Text = "";
             tbPatientAddress.Text = "";
             tbHospName.Text = "";
-            cbDoctor.Text = "";
-            tbCensorshipDepartments.Text = "";
+            //cbDoctor.Text = "";
+            //tbCensorshipDepartments.Text = "";
             tbSpecimenNo.Text = "";
             tbTestName.Text = "";
             tbTestNameAbb.Text = "";
@@ -113,7 +113,7 @@ namespace Beauty
             List<UserSettingMd> defaultValue = GetDefaultValue();
             tbDetermination.Text = defaultValue.Where(o => o.DefaultValueNo == 4).ToList()[0].UpperValueOrDefaultValue; //"扫描";
             //cbDoctor.Text = defaultValue.Where(o => o.DefaultValueNo == 5).ToList()[0].UpperValueOrDefaultValue; // "张月红";
-            tbCensorshipDepartments.Text = defaultValue.Where(o => o.DefaultValueNo == 6).ToList()[0].UpperValueOrDefaultValue;  //"妇产科";
+            //tbCensorshipDepartments.Text = defaultValue.Where(o => o.DefaultValueNo == 6).ToList()[0].UpperValueOrDefaultValue;  //"妇产科";
             tbTestName.Text = defaultValue.Where(o => o.DefaultValueNo == 7).ToList()[0].UpperValueOrDefaultValue;  //"孕中期产前筛查";
             tbTestNameAbb.Text = defaultValue.Where(o => o.DefaultValueNo == 8).ToList()[0].UpperValueOrDefaultValue;  //"YZQCQSC"
             tbGestationalWeek.Text = "周天";
@@ -359,9 +359,18 @@ namespace Beauty
             cbDoctor.GotFocus += (s, e) => cbDoctor.IsDropDownOpen = true;
             cbDoctor.LostFocus += (s, e) => cbDoctor.IsDropDownOpen = false;
             cbDoctor.ItemsSource = Common.GetDefaultValue(5, "Up").Split(',');
+            cbDoctor.SelectedIndex = 0;
+
+            tbCensorshipDepartments.MouseLeftButtonDown += (s, e) => tbCensorshipDepartments.IsDropDownOpen = true;
+            tbCensorshipDepartments.GotKeyboardFocus += (s, e) => tbCensorshipDepartments.IsDropDownOpen = true;
+            tbCensorshipDepartments.LostKeyboardFocus += (s, e) => tbCensorshipDepartments.IsDropDownOpen = false;
+            tbCensorshipDepartments.GotFocus += (s, e) => tbCensorshipDepartments.IsDropDownOpen = true;
+            tbCensorshipDepartments.LostFocus += (s, e) => tbCensorshipDepartments.IsDropDownOpen = false;
+            tbCensorshipDepartments.ItemsSource = Common.GetDefaultValue(6, "Up").Split(',');
+            tbCensorshipDepartments.SelectedIndex = 0;
             //通过B超孕周，B超时间，和采样时间，计算出采样时的孕周
-            btnCalculation.Click += (s, e) => CalculationSamplingGestationalAge();
-            tbGestationalWeekByBC.LostFocus += (s, e) => CalculationSamplingGestationalAge();
+            //btnCalculation.Click += (s, e) => CalculationSamplingGestationalAge();
+            //tbGestationalWeekByBC.LostFocus += (s, e) => CalculationSamplingGestationalAge();
 
             //通过出生日期，计算年龄
             dtpBirthday.LostFocus += (s, e) => CalculationAge();
@@ -847,8 +856,8 @@ namespace Beauty
                         }
                         if (patient.TestType == 4)
                         {
-                            if (!Common.IsWeekDay(patient.GestationalWeek))
-                                errorLog.AppendLine("您输入的采样时孕周，不符合规则，如  15周3天  ");
+                            //if (!Common.IsWeekDay(patient.GestationalWeek))
+                            //    errorLog.AppendLine("您输入的采样时孕周，不符合规则，如  15周3天  ");
 
                             //if (!Common.IsWeekDay(patient.GestationalWeekByBC))
                             //    errorLog.AppendLine("您输入的B超孕周，不符合规则，如  15周3天  ");
@@ -859,6 +868,17 @@ namespace Beauty
                                 errorLog.AppendLine("您要计算孕早期风险，请输入PPAP,游离HCG");
                             //if (patient.TestCRLDate == new DateTime() || patient.TestCRLLength == "")
                             //    errorLog.AppendLine("请输入头臀长测量日期和测量的长度");
+                            if (patient.GestationalWeek != "周天" & !string.IsNullOrWhiteSpace(patient.GestationalWeek))
+                            {
+                                if (!Common.IsWeekDay(patient.GestationalWeek))
+                                    errorLog.AppendLine("您输入的采样时孕周，不符合规则，如  15周3天  ");
+                            }
+
+                            if (patient.GestationalWeekByBC != "周天" & !string.IsNullOrWhiteSpace(patient.GestationalWeekByBC))
+                            {
+                                if (patient.GestationalWeekByBC != "周天" & !Common.IsWeekDay(patient.GestationalWeekByBC))
+                                    errorLog.AppendLine("您输入的B超孕周，不符合规则，如  15周3天  ");
+                            }
                         }
 
                         if (patient.PPAP != 0 || patient.PHCG != 0)
@@ -929,13 +949,23 @@ namespace Beauty
                 }
                 if (patient.TestType == 4) //如果选择B超孕周，用采样时孕周计算
                 {
-                    string gestationalAge = patient.GestationalWeek;
-                    sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
-                    sb.AppendLine("OBX|17|NM|GADS^Gestetional Age^L^||" + gestationalAge.Substring(gestationalAge.IndexOf('周')+1, 1) + "||||||F");
-                    //因为输入的是15周3天,所以需要处理成15.3
-                    //sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" + patient.GestationalWeek.Substring(0, 2) +
-                    //               "." + patient.GestationalWeek.Substring(3, 1) + "||||||F");
-                    //sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" + patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                    if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
+                        patient.GestationalWeekByBCDate != new DateTime())
+                    {
+                        //如果有B超时间，就用B超结果
+                        //因为输入的是15周3天,所以需要处理成15.3
+                        sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
+                                      patient.GestationalWeekByBC.Substring(0, 2) +
+                                      "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
+                        sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
+                                      patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                    }
+                    else
+                    {//没有B超结果，就直接用医生的采样孕周
+                        string gestationalAge = patient.GestationalWeek;
+                        sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
+                        sb.AppendLine("OBX|17|NM|GADS^Gestetional Age^L^||" + gestationalAge.Substring(gestationalAge.IndexOf('周') + 1, 1) + "||||||F");
+                    }
                 }
                 //如果选择的是B超孕周时间(15周2天)
                 //OBX|15|NM|GAWD^Gestetional Age^L^||15.3||||||F
@@ -963,9 +993,20 @@ namespace Beauty
                     sb.AppendLine("OBX|09|NM|NTM1^nt meting^L^||" + patient.NT + "||||||F");
                 if (!string.IsNullOrWhiteSpace(patient.TestCRLLength))
                     sb.AppendLine("OBX|10|NM|CRL1^crl^L^||" + patient.TestCRLLength + "||||||F");
-                if (!string.IsNullOrWhiteSpace(patient.TestCRLDate.ToString()) & patient.TestCRLDate != new DateTime())
-                    sb.AppendLine("OBX|11|DT|CRLD^CRLDate^L^||" + patient.TestCRLDate.ToString("yyyyMMdd") + "||||||F");
-                if (!string.IsNullOrWhiteSpace(patient.GestationalWeek))
+                if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) & patient.GestationalWeekByBCDate != new DateTime())
+                    sb.AppendLine("OBX|11|DT|CRLD^CRLDate^L^||" + patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+
+                if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
+                    patient.GestationalWeekByBCDate != new DateTime())
+                {
+                    //因为输入的是15周3天,所以需要处理成15.3
+                    sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
+                                  patient.GestationalWeekByBC.Substring(0, 2) +
+                                  "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
+                    sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
+                                  patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                }
+                else
                 {
                     string gestationalAge = patient.GestationalWeek;
                     sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
