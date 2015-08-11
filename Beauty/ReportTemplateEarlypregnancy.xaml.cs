@@ -75,14 +75,15 @@ namespace Beauty
                 tbBHcgMom.Text = m.FBCorrMoM.ToString();
                 tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD != 0 ? (m.GAWD.ToString().IndexOf('.') < 0 ? m.GAWD.ToString() + "周" : m.GAWD.ToString().Replace(".", "周") + "天") : p.GestationalWeek;
 
-                tbAR21Risk.Text = "1:" + m.AR21;
+                double readyAr21 = m.EsBiochemicalMarkers != 0 ? m.EsBiochemicalMarkers : m.AR21;
+                tbAR21Risk.Text = "1:" + readyAr21;
                 tbAR18Risk.Text = "1:" + m.AR18;
                 tbAgeRisk.Text = m.AgeDelivery.ToString("0.0");
-                tbAR21RiskCu.Text = m.AR21 <= 270 ? "高风险" : "低风险";
+                tbAR21RiskCu.Text = readyAr21 <= 270 ? "高风险" : "低风险";
                 tbAR18RiskCu.Text = m.AR18 <= 350 ? "高风险" : "低风险";
                 tbAgeRiskCu.Text = m.AgeDelivery > 35 ? "高风险" : "低风险";
                 tbAr21RiskDesc.Text = string.Format(tbAr21RiskDesc.Text,
-                    m.AR21 <= 270 ? "高风险，建议您立即做产前诊断及遗传咨询。" : "低风险，建议动态观察。");
+                    readyAr21 <= 270 ? "高风险，建议您立即做产前诊断及遗传咨询。" : "低风险，建议动态观察。");
                 tbAr18RiskDesc.Text = string.Format(tbAr18RiskDesc.Text,
                     m.AR18 <= 350 ? "高风险，建议您立即做产前诊断及遗传咨询。" : "低风险，建议动态观察。");
                 tbAgeRiskDesc.Text = string.Format(tbAgeRiskDesc.Text,
@@ -90,7 +91,7 @@ namespace Beauty
 
 
                 //生成柱状图片
-                Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
+                Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, readyAr21);
                 Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
                 AgeChartDataPoint.YValue = CalculatRisk(RiskType.Age, m.AgeDelivery);
             }

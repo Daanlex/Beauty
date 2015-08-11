@@ -999,12 +999,18 @@ namespace Beauty
                 if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
                     patient.GestationalWeekByBCDate != new DateTime())
                 {
-                    //因为输入的是15周3天,所以需要处理成15.3
-                    sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
-                                  patient.GestationalWeekByBC.Substring(0, 2) +
-                                  "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
-                    sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
-                                  patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                    if (patient.GestationalWeekByBC != "" & patient.GestationalWeekByBC != "周天")
+                    {
+                        //因为输入的是15周3天,所以需要处理成15.3
+                        sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
+                                      patient.GestationalWeekByBC.Substring(0, 2) +
+                                      "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
+                        //孕早期不给扫描时间直接头臀长的时间就行了
+                        //sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
+                        //              patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                    }
+
+                    
                 }
                 else
                 {
