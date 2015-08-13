@@ -333,6 +333,11 @@ namespace Beauty
             };
             #endregion
 
+            #region 清空
+
+            btnClear.Click += (s, e) => InitRightData();
+            #endregion
+
             #endregion
 
             #region 右边事件

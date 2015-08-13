@@ -87,8 +87,8 @@ namespace Beauty
                 tbHCGMom.Text = m.HCGCorrMom.ToString();
                 tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD != 0 ? (m.GAWD.ToString().IndexOf('.') < 0 ? m.GAWD.ToString() + "周" : m.GAWD.ToString().Replace(".", "周") + "天") : p.GestationalWeek;
 
-                tbAR21Risk.Text = "1:" + m.AR21;
-                tbAR18Risk.Text = "1:" + m.AR18;
+                tbAR21Risk.Text = m.AR21<=50?">1:50": "1:" + m.AR21;
+                tbAR18Risk.Text = m.AR18<=50?">1:50": "1:" + m.AR18;
                 tbNtRisk.Text = m.AFPCorrMom.ToString();
                 tbAgeRisk.Text = m.AgeDelivery.ToString("0.0");
                 tbAR21RiskCu.Text = m.AR21 <= 270 ? "高风险" : "低风险";
@@ -106,8 +106,8 @@ namespace Beauty
 
 
                 //生成柱状图片
-                Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21);
-                Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18);
+                Ar21ChartDataPoint.YValue = CalculatRisk(RiskType.Ar21, m.AR21<=50?50:m.AR21);
+                Ar18ChartDataPoint.YValue = CalculatRisk(RiskType.Ar18, m.AR18<=50?50:m.AR18);
                 NtChartDataPoint.YValue = m.AFPCorrMom;
                 AgeChartDataPoint.YValue = CalculatRisk(RiskType.Age, m.AgeDelivery); 
             }
@@ -115,13 +115,14 @@ namespace Beauty
 
         private double CalculatRisk(RiskType riskType, double riskVal)
         {
+            if (riskVal > 10000) riskVal = 9500;
             double resultVal = 0;
             double upProportion, downProportion;
             switch (riskType)
             {
                 case RiskType.Ar21:
                     upProportion = 30.0 / 270;
-                    downProportion = 30.0 / (10000 - 270);
+                    downProportion = 30.0 / (11000 - 270);
                     if (riskVal > 270)
                         resultVal = 270 - (riskVal * downProportion);
                     else
@@ -129,8 +130,8 @@ namespace Beauty
                     break;
                 case RiskType.Ar18:
                     upProportion = 30.0 / 350;
-                    downProportion = 30.0 / (200000 - 350);
-                    if (riskVal > 270)
+                    downProportion = 30.0 / (11000 - 350);
+                    if (riskVal > 350)
                         resultVal = 350 - (riskVal * downProportion);
                     else
                         resultVal = 380 - riskVal * upProportion;
