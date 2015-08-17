@@ -271,7 +271,8 @@
         <TextBlock Canvas.Left="297" Canvas.Top="396" Height="23"  FontSize="15" Text="鼻骨:" Width="57" />
         <TextBlock Canvas.Left="359" Canvas.Top="396" Height="23" x:Name="tbNasalBone" Text="" Width="49"  FontSize="15"   />
 
-
+        <Image Height="35" Canvas.Left="137" Canvas.Top="993" x:Name="imgExaminee" Width="100"/>
+        <Image Height="35" Canvas.Left="335" Canvas.Top="993" x:Name="imgAudit" Width="100"/>
 
     </Canvas>
 </UserControl>

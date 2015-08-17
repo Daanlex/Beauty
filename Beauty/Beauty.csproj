@@ -230,6 +230,30 @@
     <Content Include="dll\WPFVisifire.Charts.dll" />
     <Content Include="dll\Xceed.Wpf.DataGrid.dll" />
     <Content Include="dll\Xceed.Wpf.Toolkit.dll" />
+    <None Include="Signature\刘梦昕.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\刘正.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\常振华.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\张永奇.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\杨涛.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\闵宝华.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\马旭辉.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Signature\高凯.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Resource Include="Image\tablebackgroup.png" />
     <Resource Include="Image\qh_hszyy_log.jpg" />
     <Resource Include="Image\TSRisk2.jpg" />

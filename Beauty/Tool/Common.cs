@@ -185,6 +185,16 @@ namespace Beauty.Tool
             return defaultValue.Where(o => o.DefaultValueNo == no).ToList()[0].LowerValue;
 
         }
+        /// <summary>
+        /// 获取电子签名的所有文件
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetSignature()
+        {
+            FileInfo[] files = new DirectoryInfo(ConfigString.signatureUrl).GetFiles();
+            return files.Select(file => file.Name).ToList();
+        }
+
     }
 
 

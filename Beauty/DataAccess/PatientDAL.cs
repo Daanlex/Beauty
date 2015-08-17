@@ -178,7 +178,9 @@ namespace Beauty.DataAccess
                                         CreateDate,
                                         IsImportPrisca,
                                         OtherInformation,
-                                        IsHaveNasalBone) 
+                                        IsHaveNasalBone,
+                                        Examinee,
+                                        Audit) 
                                         values (
                                         @SampleNo,
                                         @PatientName,
@@ -225,7 +227,9 @@ namespace Beauty.DataAccess
                                         @CreateDate,
                                         @IsImportPrisca, 
                                         @OtherInformation,
-                                       @IsHaveNasalBone)", new
+                                        @IsHaveNasalBone,
+                                        @Examinee,
+                                        @Audit)", new
                             {
                                 SampleNo = patient.SampleNo,
                                 PatientName = patient.PatientName,
@@ -272,7 +276,9 @@ namespace Beauty.DataAccess
                                 CreateDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                                 IsImportPrisca = 0,
                                 OtherInformation = patient.OtherInformation,
-                                IsHaveNasalBone  = patient.IsHaveNasalBone
+                                IsHaveNasalBone  = patient.IsHaveNasalBone,
+                                Examinee=patient.Examinee,
+                                Audit=patient.Audit
                             }, transaction);
 
                         //判断是是否添加送检医生
@@ -368,7 +374,9 @@ namespace Beauty.DataAccess
                                         Determination=@Determination,
                                         TestType=@TestType,
                                         TestDate=@TestDate,
-                                        TestValue=@TestValue
+                                        TestValue=@TestValue,
+                                        Examinee=@Examinee,
+                                        Audit=@Audit
                                         where Id = @Id";
                 con.Execute(sql, new
                 {
@@ -414,6 +422,8 @@ namespace Beauty.DataAccess
                     TestType = patient.TestType,
                     TestDate = patient.TestDate,
                     TestValue = patient.TestValue,
+                    Examinee = patient.Examinee,
+                    Audit = patient.Audit,
                     Id = patient.Id
                 }, transaction);
                 #endregion

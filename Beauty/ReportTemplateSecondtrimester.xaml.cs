@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Beauty.Tool;
 using Beauty.Model;
 
@@ -60,6 +61,12 @@ namespace Beauty
 
             reportDate.Text = DateTime.Now.ToShortDateString();
 
+            //取检测者和审核者的电子签名
+            if (!string.IsNullOrWhiteSpace(p.Examinee))
+                imgExaminee.Source = new BitmapImage(new Uri(ConfigString.signatureUrl + p.Examinee, UriKind.Absolute));
+            if (!string.IsNullOrWhiteSpace(p.Audit))
+                imgAudit.Source = new BitmapImage(new Uri(ConfigString.signatureUrl + p.Audit, UriKind.Absolute));
+
             //第一个参数是No，第二个是上限还是下限
             Func<int, string, string> func = (a, b) =>
                 {
@@ -85,8 +92,13 @@ namespace Beauty
                 tbAFPMom.Text = m.AFPCorrMom.ToString();
                 tbUE3Mom.Text = m.UE3CorrMom.ToString();
                 tbHCGMom.Text = m.HCGCorrMom.ToString();
-                tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD != 0 ? (m.GAWD.ToString().IndexOf('.') < 0 ? m.GAWD.ToString() + "周" : m.GAWD.ToString().Replace(".", "周") + "天") : p.GestationalWeek;
-
+                //tbGestationalWeek.Text = !string.IsNullOrWhiteSpace(m.GAWD.ToString()) & m.GAWD != 0 ? (m.GAWD.ToString().IndexOf('.') < 0 ? m.GAWD.ToString() + "周" : m.GAWD.ToString().Replace(".", "周") + "天") : p.GestationalWeek;
+                //tbGestationalWeek.Text = (!string.IsNullOrWhiteSpace(p.GestationalWeek) & p.GestationalWeek != "周天")
+                //    ? p.GestationalWeek
+                //    : (m.GAWD.ToString().IndexOf('.') < 0
+                //        ? m.GAWD.ToString() + "周"
+                //        : m.GAWD.ToString().Replace(".", "周") + "天");
+                    
                 tbAR21Risk.Text = m.AR21<=50?">1:50": "1:" + m.AR21;
                 tbAR18Risk.Text = m.AR18<=50?">1:50": "1:" + m.AR18;
                 tbNtRisk.Text = m.AFPCorrMom.ToString();

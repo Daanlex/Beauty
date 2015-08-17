@@ -234,5 +234,14 @@ namespace Beauty.Model
         /// </summary>
         public MomRisk momrisk { get; set; }
 
+        /// <summary>
+        /// 检测者
+        /// </summary>
+        public string Examinee { get; set; }
+        /// <summary>
+        /// 审核者
+        /// </summary>
+        public string Audit { get; set; }
+
     }
 }

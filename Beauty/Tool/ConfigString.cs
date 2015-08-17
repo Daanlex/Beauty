@@ -47,6 +47,10 @@ namespace Beauty.Tool
         /// 导出文件路径
         /// </summary>
         public static string importExcelPath = AppDomain.CurrentDomain.BaseDirectory + "MyExcel.xls";
+        /// <summary>
+        /// 电子签名
+        /// </summary>
+        public static string signatureUrl = AppDomain.CurrentDomain.BaseDirectory + "Signature/";
 
     }
 }

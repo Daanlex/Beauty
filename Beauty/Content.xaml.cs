@@ -128,6 +128,11 @@ namespace Beauty
             cbRAID.SelectedIndex = 3; //人种默认亚洲人
             chbGAWD.IsChecked = true; //默认使用末次月经计算风险
 
+            tbExaminee.ItemsSource = Common.GetSignature();
+            tbExaminee.SelectedIndex = 0;
+            tbAudit.ItemsSource = Common.GetSignature();
+            tbAudit.SelectedIndex = 0;
+
         }
 
         /// <summary>
@@ -692,6 +697,9 @@ namespace Beauty
                 p.TestType = 5;
             p.CreateDate = DateTime.Now;
 
+            p.Examinee = tbExaminee.Text??"";
+            p.Audit = tbAudit.Text??"";
+
             return p;
         }
 
@@ -763,6 +771,9 @@ namespace Beauty
                 chbGAWD.IsChecked = true;
             else if (p.TestType == 5)
                 chbTrimester.IsChecked = true;
+
+            tbExaminee.Text = p.Examinee;
+            tbAudit.Text = p.Audit;
 
         }
 
