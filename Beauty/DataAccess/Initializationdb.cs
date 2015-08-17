@@ -114,7 +114,9 @@ namespace Beauty.DataAccess
                                     IsImportPrisca INTEGER  NULL,
                                     PrintCount INTEGER NULL,
                                     OtherInformation TEXT(200) NULL,
-                                    IsHaveNasalBone INTEGER NULL
+                                    IsHaveNasalBone INTEGER NULL,
+                                    Examinee TEXT(100) NULL,
+                                    Audit TEXT(100) NULL
                                     ); ";
                 const string createInitState = @"CREATE TABLE InitState (
                                     InitState  INTEGER NOT NULL
