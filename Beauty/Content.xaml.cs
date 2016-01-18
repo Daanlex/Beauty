@@ -59,7 +59,7 @@ namespace Beauty
         {
             //隐藏不用的功能
             btnImportExcel.Visibility = System.Windows.Visibility.Collapsed;
-            btnExportExcel.Visibility = System.Windows.Visibility.Collapsed;
+            //btnExportExcel.Visibility = System.Windows.Visibility.Collapsed;
 
 
             InitLeftData();
@@ -186,18 +186,18 @@ namespace Beauty
             #endregion
 
             #region 导出Excel
-            //btnExportExcel.Click += (s, e) =>
-            //{
-            //    List<Patient> list1 = SearchDataExtend();
-            //    new Thread(a =>
-            //    {
-            //        if (ExcelHelper.SaveDataTableToExcel(list1, ConfigString.importExcelPath))
-            //            MessageBox.Show(@"保存成功,存放在" + ConfigString.importExcelPath);
-            //        else
-            //            MessageBox.Show("保存失败");
-            //    }).Start();
+            btnExportExcel.Click += (s, e) =>
+            {
+                var list1 = SearchDataExtend();
+                new Thread(a =>
+                {
+                    if (ExcelHelper.SaveDataListToExcel(list1, ConfigString.importExcelPath))
+                        MessageBox.Show(@"保存成功,存放在" + ConfigString.importExcelPath);
+                    else
+                        MessageBox.Show("保存失败");
+                }).Start();
 
-            //};
+            };
             #endregion
 
             #region 全选
@@ -658,6 +658,7 @@ namespace Beauty
             p.SpecimenNo = tbSpecimenNo.Text.Trim();
             p.TestName = tbTestName.Text.Trim();
             p.TestNameAbb = tbTestNameAbb.Text.Trim();
+            p.IsFn = tbIsFn.Text == null ? "" : tbIsFn.Text.Trim();
             p.CollectionDate = dtpCollectionDate.SelectedDate != null ? (DateTime)dtpCollectionDate.SelectedDate : DateTime.Now;
             p.Weight = Common.IsNumber(tbWGHT.Text.Trim()) ? Convert.ToDouble(tbWGHT.Text.Trim()) : 0;
             p.FETU = Common.IsNumber(tbFETU.Text.Trim()) ? Convert.ToInt32(tbFETU.Text.Trim()) : 0;
@@ -726,6 +727,7 @@ namespace Beauty
             tbSpecimenNo.Text = p.SpecimenNo;
             tbTestName.Text = p.TestName;
             tbTestNameAbb.Text = p.TestNameAbb;
+            tbIsFn.Text = p.IsFn;
             if (p.CollectionDate != new DateTime()) dtpCollectionDate.SelectedDate = p.CollectionDate;
             else dtpCollectionDate.SelectedDate = null;
             tbWGHT.Text = p.Weight.ToString();
@@ -851,11 +853,11 @@ namespace Beauty
                         if (patient.TestType == 2 && patient.TestCRLLength != "")
                         {
                             if (!Common.IsNumber(patient.TestCRLLength))
-                                errorLog.AppendLine("您输入的头臀长不是数字，只能在38-84cm");
+                                errorLog.AppendLine("您输入的头臀长不是数字，只能在38-120cm");
                             else
                             {
-                                if (Convert.ToInt32(patient.TestCRLLength) < 38 || Convert.ToInt32(patient.TestCRLLength) > 84)
-                                    errorLog.AppendLine("您输入的头臀长超过了范围，只能在38-84cm");
+                                if (Convert.ToInt32(patient.TestCRLLength) < 38 || Convert.ToInt32(patient.TestCRLLength) > 120)
+                                    errorLog.AppendLine("您输入的头臀长超过了范围，只能在38-120cm");
                             }
                         }
 
@@ -931,7 +933,7 @@ namespace Beauty
             {
                 #region 写入孕中期接口文件
                 sb.AppendLine(@"H|^\&|||PRISCA||ORU|||DUBLIN TRAINING 1||P|A2.2|20120711154235|");
-                sb.AppendLine("P|1|" + patient.SampleNo + "|||" + patient.HospName + "^" + patient.PatientName + "||" +
+                sb.AppendLine("P|1|" + patient.SampleNo+ "|||" + patient.HospName + "^" + patient.PatientName + "||" +
                               patient.Birthday.ToString("yyyyMMdd") + "|F");
                 sb.AppendLine("OBR|1|" + patient.SpecimenNo + "||" + patient.TestNameAbb + "^" + patient.TestName +
                               "^L^|||20090901080808||");
@@ -948,10 +950,19 @@ namespace Beauty
 
                 if (patient.TestType == 1) //如果选中末次月经
                 {
-                    sb.AppendLine("OBX|11|DT|LMP^Datum laatste menses^L^||" + patient.TestLMPDate.ToString("yyyyMMdd") +
-                                  "||||||F");
-                    if (patient.TestCYCL != "")
-                        sb.AppendLine("OBX|12|NM|CYCL||" + patient.TestCYCL + "||||||F");
+                    //如果有医生的采样时候孕周，就用采样孕周
+                    if (!string.IsNullOrWhiteSpace(patient.GestationalWeek) & patient.GestationalWeek != "周天")
+                    {
+                        string gestationalAge = patient.GestationalWeek;
+                        sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
+                        sb.AppendLine("OBX|17|NM|GADS^Gestetional Age^L^||" + gestationalAge.Substring(gestationalAge.IndexOf('周') + 1, 1) + "||||||F");
+                    }
+                    else
+                    {
+                        sb.AppendLine("OBX|11|DT|LMP^Datum laatste menses^L^||" +patient.TestLMPDate.ToString("yyyyMMdd") +"||||||F");
+                        if (patient.TestCYCL != "")
+                            sb.AppendLine("OBX|12|NM|CYCL||" + patient.TestCYCL + "||||||F");
+                    }
                 }
                 if (patient.TestType == 2) //如果选中头臀长
                 {
@@ -965,23 +976,23 @@ namespace Beauty
                 }
                 if (patient.TestType == 4) //如果选择B超孕周，用采样时孕周计算
                 {
-                    if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
-                        patient.GestationalWeekByBCDate != new DateTime())
-                    {
-                        //如果有B超时间，就用B超结果
-                        //因为输入的是15周3天,所以需要处理成15.3
-                        sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
-                                      patient.GestationalWeekByBC.Substring(0, 2) +
-                                      "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
-                        sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
-                                      patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
-                    }
-                    else
-                    {//没有B超结果，就直接用医生的采样孕周
+                    //if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
+                    //    patient.GestationalWeekByBCDate != new DateTime() & patient.GestationalWeekByBC!="周天")
+                    //{
+                    //    //如果有B超时间，就用B超结果
+                    //    //因为输入的是15周3天,所以需要处理成15.3
+                    //    sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
+                    //                  patient.GestationalWeekByBC.Substring(0, 2) +
+                    //                  "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
+                    //    sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
+                    //                  patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                    //}
+                    //else
+                    //{//没有B超结果，就直接用医生的采样孕周
                         string gestationalAge = patient.GestationalWeek;
                         sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
                         sb.AppendLine("OBX|17|NM|GADS^Gestetional Age^L^||" + gestationalAge.Substring(gestationalAge.IndexOf('周') + 1, 1) + "||||||F");
-                    }
+                    //}
                 }
                 //如果选择的是B超孕周时间(15周2天)
                 //OBX|15|NM|GAWD^Gestetional Age^L^||15.3||||||F
@@ -994,7 +1005,7 @@ namespace Beauty
             {
                 #region 写入孕早期接口文件
                 sb.AppendLine(@"H|^~\&|||38-1^||ORM|||0010^HCP000||A2.2|200501260950|");
-                sb.AppendLine("P|1|" + patient.SampleNo + "|||" + patient.HospName + "^" + patient.PatientName + "||" +
+                sb.AppendLine("P|1|" + patient.SampleNo  + "|||" + patient.HospName + "^" + patient.PatientName + "||" +
                               patient.Birthday.ToString("yyyyMMdd") + "|F");
                 sb.AppendLine("OBR|1|" + patient.SpecimenNo + "||" + patient.TestNameAbb + "^" + patient.TestName +
                               "^L^|||" + patient.CollectionDate.ToString("yyyyMMdd") + "||||R|| |200501260950|||||||||||||R|");
@@ -1007,33 +1018,29 @@ namespace Beauty
                 sb.AppendLine("OBX|08|NM|FETU^Aantal foetussen^L^||" + patient.FETU + "||||||F");
                 if (patient.NT != 0)
                     sb.AppendLine("OBX|09|NM|NTM1^nt meting^L^||" + patient.NT + "||||||F");
-                if (!string.IsNullOrWhiteSpace(patient.TestCRLLength))
-                    sb.AppendLine("OBX|10|NM|CRL1^crl^L^||" + patient.TestCRLLength + "||||||F");
+                //if (!string.IsNullOrWhiteSpace(patient.TestCRLLength))
+                //    sb.AppendLine("OBX|10|NM|CRL1^crl^L^||" + patient.TestCRLLength + "||||||F");
                 if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) & patient.GestationalWeekByBCDate != new DateTime())
                     sb.AppendLine("OBX|11|DT|CRLD^CRLDate^L^||" + patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
 
-                if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
-                    patient.GestationalWeekByBCDate != new DateTime())
-                {
-                    if (patient.GestationalWeekByBC != "" & patient.GestationalWeekByBC != "周天")
-                    {
-                        //因为输入的是15周3天,所以需要处理成15.3
-                        sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
-                                      patient.GestationalWeekByBC.Substring(0, 2) +
-                                      "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
-                        //孕早期不给扫描时间直接头臀长的时间就行了
-                        //sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
-                        //              patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
-                    }
-
+                //if (!string.IsNullOrWhiteSpace(patient.GestationalWeekByBCDate.ToString()) &
+                //    patient.GestationalWeekByBCDate != new DateTime() &  patient.GestationalWeekByBC != "周天")
+                //{
                     
-                }
-                else
-                {
+                //        //因为输入的是15周3天,所以需要处理成15.3
+                //        sb.AppendLine("OBX|15|NM|GAWD^Gestetional Age^L^||" +
+                //                      patient.GestationalWeekByBC.Substring(0, 2) +
+                //                      "." + patient.GestationalWeekByBC.Substring(3, 1) + "||||||F");
+                //        //孕早期不给扫描时间直接头臀长的时间就行了
+                //        //sb.AppendLine("OBX|07|DT|SCAN^Scandate^L^||" +
+                //        //              patient.GestationalWeekByBCDate.ToString("yyyyMMdd") + "||||||F");
+                //}
+                //else
+                //{
                     string gestationalAge = patient.GestationalWeek;
                     sb.AppendLine("OBX|16|NM|GWSM^Gestetional Age^L^||" + gestationalAge.Substring(0, gestationalAge.IndexOf('周')) + "||||||F");
                     sb.AppendLine("OBX|17|NM|GADS^Gestetional Age^L^||" + gestationalAge.Substring(gestationalAge.IndexOf('周') + 1, 1) + "||||||F");
-                }
+                //}
                 sb.AppendLine("OBX|12|TX|DIAB^Diabetes^L^||" + patient.DIAB + "||||||F");
                 sb.AppendLine("OBX|13|TX|SMOK^Smoking status^L^||" + patient.SMOK + "||||||F");
                 sb.AppendLine("OBX|14|CE|ULTR^Sonographer^L^||刘芳||||||F");
@@ -1099,6 +1106,7 @@ namespace Beauty
         {
             new Thread(() => Dispatcher.Invoke(new Action(SearchData))).Start();
         }
+
 
     }
 }

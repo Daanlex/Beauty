@@ -125,12 +125,19 @@ namespace Beauty.DataAccess
             bool flag = false;
             if (list != null && list.Count > 0)
             {
-                list = Encrypt.TEncryptDES(list);
+                //list = Encrypt.TEncryptDES(list);
                 using (var con = new Connection().GetConnection)
                 {
                     IDbTransaction transaction = con.BeginTransaction();
-                    foreach (var patient in list)
+                    foreach (var pa in list)
                     {
+                        //先加密判断sampleno有没有存在
+                        string encySampleNo =  Encrypt.EncryptDES(pa.SampleNo);
+                        var query = con.Query<Patient>(@"select * from Patient where SampleNo = @SampleNo",
+                            new {SampleNo = encySampleNo}, transaction).ToList();
+                        if (query.Count > 0)
+                            pa.SampleNo = pa.SampleNo + "X" + query.Count;
+                        var patient = Encrypt.TEncryptDES(pa);
                         #region 插入数据库
                         con.Execute(@"insert into Patient (
                                         SampleNo,
@@ -180,7 +187,7 @@ namespace Beauty.DataAccess
                                         OtherInformation,
                                         IsHaveNasalBone,
                                         Examinee,
-                                        Audit) 
+                                        Audit,IsFn) 
                                         values (
                                         @SampleNo,
                                         @PatientName,
@@ -229,7 +236,7 @@ namespace Beauty.DataAccess
                                         @OtherInformation,
                                         @IsHaveNasalBone,
                                         @Examinee,
-                                        @Audit)", new
+                                        @Audit,@IsFn)", new
                             {
                                 SampleNo = patient.SampleNo,
                                 PatientName = patient.PatientName,
@@ -278,7 +285,8 @@ namespace Beauty.DataAccess
                                 OtherInformation = patient.OtherInformation,
                                 IsHaveNasalBone  = patient.IsHaveNasalBone,
                                 Examinee=patient.Examinee,
-                                Audit=patient.Audit
+                                Audit=patient.Audit,
+                                IsFn = patient.IsFn
                             }, transaction);
 
                         //判断是是否添加送检医生
@@ -376,7 +384,8 @@ namespace Beauty.DataAccess
                                         TestDate=@TestDate,
                                         TestValue=@TestValue,
                                         Examinee=@Examinee,
-                                        Audit=@Audit
+                                        Audit=@Audit,
+                                        IsFn  = @IsFn
                                         where Id = @Id";
                 con.Execute(sql, new
                 {
@@ -424,6 +433,7 @@ namespace Beauty.DataAccess
                     TestValue = patient.TestValue,
                     Examinee = patient.Examinee,
                     Audit = patient.Audit,
+                    IsFn = patient.IsFn,
                     Id = patient.Id
                 }, transaction);
                 #endregion

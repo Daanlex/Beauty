@@ -45,7 +45,7 @@ namespace Beauty
             cbDoctor.Text = p.CensorshipDoctor;
             //cbAPH.Text = DataHandle.GetEnum(aPH: p.APH);
             cbRAID.Text = DataHandle.GetEnum(rAID: p.RAID);
-
+            Phone.Text = p.PatientTel;
             tbPPAP.Text = p.PPAP.ToString();
             tbBHCG.Text = p.PHCG.ToString();
             tbGestationalWeek.Text = p.GestationalWeek;

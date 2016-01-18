@@ -8,21 +8,21 @@
 
     <Canvas Height="565">
         <Rectangle Canvas.Left="-1" Canvas.Top="8" Height="551" Name="rectangle1"  Stroke="Black" Width="290" />
-        <TextBlock Canvas.Left="12" Canvas.Top="8" Height="23" Name="textBlock1" Text="开始时间" />
-        <TextBlock Canvas.Left="11" Canvas.Top="36" Height="23" Name="textBlock2" Text="结束时间" />
-        <DatePicker Canvas.Left="61" Canvas.Top="4" Height="25" Name="dpkStartTime" Width="111" FirstDayOfWeek="Monday" />
-        <DatePicker Canvas.Left="61" Canvas.Top="32" Height="25" Name="dpkEndTime" Width="111" FirstDayOfWeek="Monday" />
-        <TextBlock Canvas.Left="10" Canvas.Top="63" Height="23" Name="textBlock3" Text="病人姓名" />
-        <TextBox Canvas.Left="61" Canvas.Top="63" Height="23" Name="searchPatientName" Width="111" />
-        <ComboBox Canvas.Left="174" Canvas.Top="36" Height="23" Name="cbIsImportPrisca" Width="106">
+        <TextBlock Canvas.Left="12" Canvas.Top="19" Height="23" Name="textBlock1" Text="开始时间" />
+        <TextBlock Canvas.Left="11" Canvas.Top="47" Height="23" Name="textBlock2" Text="结束时间" />
+        <DatePicker Canvas.Left="61" Canvas.Top="15" Height="25" Name="dpkStartTime" Width="111" FirstDayOfWeek="Monday" />
+        <DatePicker Canvas.Left="61" Canvas.Top="43" Height="25" Name="dpkEndTime" Width="111" FirstDayOfWeek="Monday" />
+        <TextBlock Canvas.Left="10" Canvas.Top="74" Height="23" Name="textBlock3" Text="病人姓名" />
+        <TextBox Canvas.Left="61" Canvas.Top="74" Height="23" Name="searchPatientName" Width="111" />
+        <ComboBox Canvas.Left="174" Canvas.Top="43" Height="23" Name="cbIsImportPrisca" Width="106">
             <ComboBoxItem Content="所有" DataContext="{Binding}" />
             <ComboBoxItem Content="未导入Prisca" />
             <ComboBoxItem Content="已经导入Prisca" />
         </ComboBox>
-        <Button Canvas.Left="174" Canvas.Top="62" Content="查询" Height="23" Name="btnSearch" Width="62" />
-        <Button Canvas.Left="241" Canvas.Top="62" Content="清空" Height="23" Name="btnClear" Width="39" />
+        <Button Canvas.Left="174" Canvas.Top="74" Content="查询" Height="23" Name="btnSearch" Width="62" />
+        <Button Canvas.Left="241" Canvas.Top="74" Content="清空" Height="23" Name="btnClear" Width="39" />
         <DataGrid AutoGenerateColumns="False" IsReadOnly="False" Canvas.Left="6" 
-                  SelectedValuePath="{Binding Path=Id}" Canvas.Top="95" Height="412"  Name="dgPatient" Width="283" CanUserAddRows="False" FrozenColumnCount="3" >
+                  SelectedValuePath="{Binding Path=Id}" Canvas.Top="102" Height="412"  Name="dgPatient" Width="283" CanUserAddRows="False" FrozenColumnCount="3" >
             <DataGrid.Columns>
 
                 <DataGridTemplateColumn     Width="30">
@@ -46,7 +46,7 @@
         </DataGrid>
 
         <TextBlock Canvas.Left="308" Canvas.Top="8" Height="23" Name="textBlock4" Text="门诊号ID" Width="86" />
-        <TextBox Canvas.Left="400" Canvas.Top="8" Height="23" Name="tbSampleNo" Text="" Width="109" BorderBrush="#FFF01616" />
+        <TextBox Canvas.Left="400" Canvas.Top="8" Height="23" Name="tbSampleNo" Text="" Width="109" BorderBrush="#FFF01616"/>
         <TextBlock Canvas.Left="308" Canvas.Top="36" Height="23" Name="textBlock5" Text="姓名" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="36" Height="23" Name="tbPatientName" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="63" Height="23" Name="textBlock42" Text="性别" Width="86" />
@@ -59,11 +59,12 @@
         <DatePicker Canvas.Left="400" Canvas.Top="91" Height="25" Name="dtpBirthday" Width="109" BorderBrush="#FFF01616" FirstDayOfWeek="Monday" />
         <TextBlock Canvas.Left="308" Canvas.Top="121" Height="23" Name="textBlock39" Text="年龄" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="121" Height="23" Name="tbAge" Text="" Width="109" />
+        <TextBlock Canvas.Left="309" Canvas.Top="149" Height="23" Name="textBlock12" Text="体重(Kg)" Width="86" />
+        <TextBox Canvas.Left="400" Canvas.Top="149" Height="23" Name="tbWGHT" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="177" Height="23" Name="textBlock40" Text="住院号" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="177" Height="23" Name="tbHospitalizedNo" Text="" Width="109" />
         <TextBlock Canvas.Left="308" Canvas.Top="205" Height="23" Name="textBlock41" Text="床号" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="205" Height="23" Name="tbBadNo" Text="" Width="109" />
-
         <TextBlock Canvas.Left="308" Canvas.Top="233" Height="23" Name="textBlock32" Text="电话" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="233" Height="23" Name="tbPatientTel" Text="" Width="109" />
         <TextBlock Canvas.Left="308" Canvas.Top="261" Height="23" Name="textBlock33" Text="家庭地址" Width="86" />
@@ -81,12 +82,15 @@
         <TextBox Canvas.Left="400" Canvas.Top="375" Height="23" Name="tbSpecimenNo" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="404" Height="23" Name="textBlock9" Text="组合项目名称" Width="86" />
         <TextBox Canvas.Left="400" Canvas.Top="404" Height="23" Name="tbTestName" Text="" Width="109" BorderBrush="#FFF01616" />
-        <TextBlock Canvas.Left="308" Canvas.Top="433" Height="23" Name="textBlock10" Text="组合项目缩写" Width="86" />
-        <TextBox Canvas.Left="400" Canvas.Top="433" Height="23" Name="tbTestNameAbb" Text="" Width="109" BorderBrush="#FFF01616" />
+        <TextBlock Canvas.Left="308" Canvas.Top="433" Height="23"  Text="户籍" Width="86" />
+        <ComboBox Canvas.Left="400" Canvas.Top="433" IsEditable="True" Height="23" Name="tbIsFn" Text="" Width="109" BorderBrush="#FFF01616" >
+            <ComboBoxItem Content="农" DataContext="{Binding}" />
+            <ComboBoxItem Content="非农" />
+        </ComboBox>
+        <TextBlock Canvas.Left="308" Canvas.Top="433" Height="23" Name="textBlock10" Visibility="Hidden" Text="组合项目缩写" Width="86" />
+        <TextBox Canvas.Left="400" Canvas.Top="433" Height="23" Name="tbTestNameAbb" Visibility="Hidden" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="308" Canvas.Top="462" Height="23" Name="textBlock11" Text="采样日期" Width="86" />
         <DatePicker Canvas.Left="400" Canvas.Top="462" Height="25" Name="dtpCollectionDate" Width="109" BorderBrush="#FFF01616" FirstDayOfWeek="Monday" />
-        <TextBlock Canvas.Left="309" Canvas.Top="149" Height="23" Name="textBlock12" Text="体重(Kg)" Width="86" />
-        <TextBox Canvas.Left="400" Canvas.Top="149" Height="23" Name="tbWGHT" Text="" Width="109" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="550" Canvas.Top="10" Height="23" Name="textBlock14" Text="胎儿数量" Width="86" />
         <TextBox Canvas.Left="640" Canvas.Top="10" Height="23" Name="tbFETU" Text="" Width="110" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="547" Canvas.Top="36" Height="23"  Text="是否有鼻骨" Width="86" />
@@ -133,10 +137,9 @@
         <TextBox Canvas.Left="639" Canvas.Top="265" Height="23" Name="tbUE3" Text="" Width="110" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="548" Canvas.Top="292" Height="23"  Text="β-HCG" Width="86" />
         <TextBox Canvas.Left="639" Canvas.Top="292" Height="23" Name="tbPHCG" Text="" Width="110" BorderBrush="#FFF01616" />
-        <TextBlock Canvas.Left="547" Canvas.Top="317" Height="23"  Text="PPAP-A" Width="86" />
+        <TextBlock Canvas.Left="547" Canvas.Top="317" Height="23"  Text="PAPP-A" Width="86" />
         <TextBox Canvas.Left="639" Canvas.Top="318" Height="23" Name="tbPPAP" Text="" Width="110" BorderBrush="#FFF01616" />
-        <TextBlock Canvas.Left="788" Canvas.Top="136" Height="23"  Text="NT" Width="86" />
-        <TextBox Canvas.Left="880" Canvas.Top="136" Height="23" Name="tbNT" Text="" Width="110" BorderBrush="#FFF01616" />
+        
 
 
 
@@ -150,29 +153,31 @@
         <TextBox Canvas.Left="880" Canvas.Top="52" Height="23" Visibility="Hidden" Name="tbGestationalWeekByBC" Text="" Width="109" />
         <TextBlock Canvas.Left="788" Canvas.Top="54" Height="23"  Text="采样时孕周" Width="86" />
         <TextBox Canvas.Left="880" Canvas.Top="54" Height="23" Name="tbGestationalWeek" Text="" Width="109" />
+        <TextBlock Canvas.Left="788" Canvas.Top="80" Height="23" Name="textBlock26" Text="头臀长" Width="86" />
+        <TextBox Canvas.Left="880" Canvas.Top="80" Height="23" Name="tbCRLLength" Text="" Width="109" />
+        <TextBlock Canvas.Left="788" Canvas.Top="108" Height="23" Name="textBlock29" Text="双顶径" Width="86" />
+        <TextBox Canvas.Left="880" Canvas.Top="108" Height="23" Name="tbBPDLength" Text="" Width="109" />
+        <TextBlock Canvas.Left="788" Canvas.Top="136" Height="23"  Text="NT" Width="86" />
+        <TextBox Canvas.Left="880" Canvas.Top="136" Height="23" Name="tbNT" Text="" Width="110" BorderBrush="#FFF01616" />
         <CheckBox Canvas.Left="788" Canvas.Top="163" Content="末次月经" Height="16" Name="chbLMP" BorderBrush="#FFF01616"  />
         <TextBlock Canvas.Left="788" Canvas.Top="183" Height="23" Name="textBlock22" Text="末次月经日期" Width="86" />
         <DatePicker Canvas.Left="880" Canvas.Top="183" Height="25" Name="dtpLMPDate" Width="109" FirstDayOfWeek="Monday" />
         <TextBlock Canvas.Left="788" Canvas.Top="210" Height="23" Name="textBlock23" Text="月经周期" Width="86" />
         <TextBox Canvas.Left="880" Canvas.Top="210" Height="23" Name="tbCYCL" Text="" Width="109" />
-        <TextBlock Canvas.Left="996" Canvas.Top="211" Height="23" Name="textBlock24" Text="天" Width="20" />
-        <CheckBox Canvas.Left="788" Canvas.Top="260" Content="头臀长" Height="16" Name="chbCRL" BorderBrush="#FFF01616" Visibility="Hidden" />
-        <TextBlock Canvas.Left="788" Canvas.Top="280" Height="23" Name="textBlock25" Text="测量日期" Width="86" Visibility="Hidden"  />
-        <DatePicker Canvas.Left="880" Canvas.Top="280" Height="25" Name="dtpCRLDate" Width="109" FirstDayOfWeek="Monday" Visibility="Hidden" />
-        <TextBlock Canvas.Left="788" Canvas.Top="80" Height="23" Name="textBlock26" Text="头臀长" Width="86" />
-        <TextBox Canvas.Left="880" Canvas.Top="80" Height="23" Name="tbCRLLength" Text="" Width="109" />
-        <TextBlock Canvas.Left="992" Canvas.Top="82" Height="23" Name="textBlock27" Text="毫米" Width="24" />
-        <CheckBox Canvas.Left="788" Canvas.Top="306" Content="双顶径" Height="16" Name="chbBPD" BorderBrush="#FFF01616" Visibility="Hidden" />
-        <TextBlock Canvas.Left="788" Canvas.Top="326" Height="23" Name="textBlock28" Text="测量日期" Width="86" Visibility="Hidden" />
-        <DatePicker Canvas.Left="880" Canvas.Top="326" Height="25" Name="dtpBPDDate" Width="109" FirstDayOfWeek="Monday" Visibility="Hidden" />
-        <TextBlock Canvas.Left="788" Canvas.Top="108" Height="23" Name="textBlock29" Text="双顶径" Width="86" />
-        <TextBox Canvas.Left="880" Canvas.Top="108" Height="23" Name="tbBPDLength" Text="" Width="109" />
-        <TextBlock Canvas.Left="992" Canvas.Top="110" Height="23" Name="textBlock30" Text="毫米" Width="24" />
         <CheckBox Canvas.Left="788" Canvas.Top="245" Content="孕早期风险计算" Height="16" Name="chbTrimester" BorderBrush="#FFF01616" />
         <TextBlock Canvas.Left="788" Canvas.Top="274" Height="23" Text="检测者" Width="86" />
         <ComboBox Canvas.Left="880" Canvas.Top="274" Height="23" IsEditable="True"  Name="tbExaminee" Text="" Width="109" />
         <TextBlock Canvas.Left="788" Canvas.Top="302" Height="23" Text="审核者" Width="86" />
         <ComboBox Canvas.Left="880" Canvas.Top="302" Height="23" IsEditable="True"  Name="tbAudit" Text="" Width="109" />
+        <TextBlock Canvas.Left="996" Canvas.Top="211" Height="23" Name="textBlock24" Text="天" Width="20" />
+        <CheckBox Canvas.Left="788" Canvas.Top="260" Content="头臀长" Height="16" Name="chbCRL" BorderBrush="#FFF01616" Visibility="Hidden" />
+        <TextBlock Canvas.Left="788" Canvas.Top="280" Height="23" Name="textBlock25" Text="测量日期" Width="86" Visibility="Hidden"  />
+        <DatePicker Canvas.Left="880" Canvas.Top="280" Height="25" Name="dtpCRLDate" Width="109" FirstDayOfWeek="Monday" Visibility="Hidden" />
+        <TextBlock Canvas.Left="992" Canvas.Top="82" Height="23" Name="textBlock27" Text="毫米" Width="24" />
+        <CheckBox Canvas.Left="788" Canvas.Top="306" Content="双顶径" Height="16" Name="chbBPD" BorderBrush="#FFF01616" Visibility="Hidden" />
+        <TextBlock Canvas.Left="788" Canvas.Top="326" Height="23" Name="textBlock28" Text="测量日期" Width="86" Visibility="Hidden" />
+        <DatePicker Canvas.Left="880" Canvas.Top="326" Height="25" Name="dtpBPDDate" Width="109" FirstDayOfWeek="Monday" Visibility="Hidden" />
+        <TextBlock Canvas.Left="992" Canvas.Top="110" Height="23" Name="textBlock30" Text="毫米" Width="24" />
         <TextBlock Canvas.Left="548" Canvas.Top="368" Height="23" Name="textBlock31" Visibility="Hidden" Text="Id" Width="86" />
         <TextBlock Canvas.Left="640" Canvas.Top="368" Height="23" Name="tbKey" Visibility="Hidden" Text="" Width="109" />
         <Button Canvas.Left="400" Canvas.Top="518" Content="添加" Height="23" Name="btnInsertData" Width="75" RenderTransformOrigin="0.507,1.407" />

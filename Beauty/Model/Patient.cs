@@ -77,6 +77,11 @@ namespace Beauty.Model
         /// </summary>
         public string TestNameAbb { get; set; }
         /// <summary>
+        /// 是否非农
+        /// </summary>
+        public string IsFn { get; set; }
+
+        /// <summary>
         /// 采样日期
         /// </summary>
         public DateTime CollectionDate { get; set; }

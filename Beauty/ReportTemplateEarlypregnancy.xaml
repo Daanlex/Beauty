@@ -39,15 +39,17 @@
         <TextBlock Canvas.Left="397" Canvas.Top="158" Height="23" Name="textBlock17" Text="糖尿病史:" Width="60" />
         <TextBlock Canvas.Left="464" Canvas.Top="158" Height="23" Name="cbDIAB" Width="80" />
 
-        <TextBlock Canvas.Left="230" Canvas.Top="186" Height="23" Name="textBlock34" Text="送检医生:" Width="60" />
+        <TextBlock Canvas.Left="230" Canvas.Top="186" Height="23"  Text="送检医生:" Width="60" />
         <TextBlock Canvas.Left="298" Canvas.Top="186" Height="23" Name="cbDoctor" Width="80" />
-        <TextBlock Canvas.Left="399" Canvas.Top="186" Height="23"  Text="其他:" Width="60" />
-        <TextBlock Canvas.Left="464" Canvas.Top="186" Height="23" Name="tbOtherInfomation" Width="80" />
+        <TextBlock Canvas.Left="397" Canvas.Top="186" Height="23" Text="电话:" Width="60" />
+        <TextBlock Canvas.Left="464" Canvas.Top="186" Height="23" Name="Phone" Width="80" />
+        <TextBlock Canvas.Left="560" Canvas.Top="186" Height="23"  Text="其他:" Width="60" />
+        <TextBlock Canvas.Left="623" Canvas.Top="186" Height="23" Name="tbOtherInfomation" Width="80" />
         <TextBlock Canvas.Left="560" Canvas.Top="101" Height="23" Name="textBlock18" Text="人种:" Width="60"  />
         <TextBlock Canvas.Left="623" Canvas.Top="101" Height="23" Name="cbRAID" Width="80" />
-        <TextBlock Canvas.Left="70" Canvas.Top="261" Height="23"   FontSize="15" Text="PPAP-A 妊娠相关蛋白-A" Width="256" />
+        <TextBlock Canvas.Left="70" Canvas.Top="261" Height="23"   FontSize="15" Text="PAPP-A 妊娠相关蛋白-A" Width="256" />
         <TextBlock Canvas.Left="359" Canvas.Top="261" Height="23" Name="tbPPAP" Text="" Width="61"  FontSize="15" />
-        <TextBlock Canvas.Left="70" Canvas.Top="292" Height="23" FontSize="15"  Text="Free-β HCG 游离β人绒毛促性腺激素" Width="256" />
+        <TextBlock Canvas.Left="70" Canvas.Top="292" Height="23" FontSize="15"  Text="Free β-HCG 游离β人绒毛促性腺激素" Width="256" />
         <TextBlock Canvas.Left="359" Canvas.Top="292" Height="23" Name="tbBHCG" Text="" Width="61"  FontSize="15"   />
         <TextBlock Canvas.Left="399" Canvas.Top="130" Height="23" Name="textBlock36" Text="采样孕周:" Width="60" />
         <TextBlock Canvas.Left="464" Canvas.Top="130" Height="23" Name="tbGestationalWeek" Text="" Width="80" RenderTransformOrigin="0.525,0.87" />
