@@ -121,6 +121,7 @@ namespace Beauty.Tool
             header.CreateCell(45).SetCellValue("β-HCG修正值");
             header.CreateCell(46).SetCellValue("NT修正值");
             header.CreateCell(47).SetCellValue("是否非农");
+            header.CreateCell(48).SetCellValue("地区");
             // 创建新增行
             for (var i = 1; i <= list.Count; i++)
             {
@@ -179,6 +180,7 @@ namespace Beauty.Tool
                     row.CreateCell(46).SetCellValue(p.momrisk.NTCorrMoM);
                 }
                 row.CreateCell(47).SetCellValue(p.IsFn);
+                row.CreateCell(48).SetCellValue(p.Area);
 
             }
             var ms = new MemoryStream();

@@ -80,6 +80,10 @@ namespace Beauty.Model
         /// 是否非农
         /// </summary>
         public string IsFn { get; set; }
+        /// <summary>
+        /// 地区(西安，非西安)
+        /// </summary>
+        public string Area { get; set; }
 
         /// <summary>
         /// 采样日期

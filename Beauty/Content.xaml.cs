@@ -659,6 +659,7 @@ namespace Beauty
             p.TestName = tbTestName.Text.Trim();
             p.TestNameAbb = tbTestNameAbb.Text.Trim();
             p.IsFn = tbIsFn.Text == null ? "" : tbIsFn.Text.Trim();
+            p.Area = tbArea.Text == null ? "" : tbArea.Text.Trim();
             p.CollectionDate = dtpCollectionDate.SelectedDate != null ? (DateTime)dtpCollectionDate.SelectedDate : DateTime.Now;
             p.Weight = Common.IsNumber(tbWGHT.Text.Trim()) ? Convert.ToDouble(tbWGHT.Text.Trim()) : 0;
             p.FETU = Common.IsNumber(tbFETU.Text.Trim()) ? Convert.ToInt32(tbFETU.Text.Trim()) : 0;
@@ -728,6 +729,7 @@ namespace Beauty
             tbTestName.Text = p.TestName;
             tbTestNameAbb.Text = p.TestNameAbb;
             tbIsFn.Text = p.IsFn;
+            tbArea.Text = p.Area;
             if (p.CollectionDate != new DateTime()) dtpCollectionDate.SelectedDate = p.CollectionDate;
             else dtpCollectionDate.SelectedDate = null;
             tbWGHT.Text = p.Weight.ToString();

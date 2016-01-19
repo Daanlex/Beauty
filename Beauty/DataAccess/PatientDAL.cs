@@ -136,7 +136,7 @@ namespace Beauty.DataAccess
                         var query = con.Query<Patient>(@"select * from Patient where SampleNo = @SampleNo",
                             new {SampleNo = encySampleNo}, transaction).ToList();
                         if (query.Count > 0)
-                            pa.SampleNo = pa.SampleNo + "X" + query.Count;
+                            pa.SampleNo = pa.SampleNo + "X" + (query.Count+1);
                         var patient = Encrypt.TEncryptDES(pa);
                         #region 插入数据库
                         con.Execute(@"insert into Patient (
@@ -187,7 +187,7 @@ namespace Beauty.DataAccess
                                         OtherInformation,
                                         IsHaveNasalBone,
                                         Examinee,
-                                        Audit,IsFn) 
+                                        Audit,IsFn,Area) 
                                         values (
                                         @SampleNo,
                                         @PatientName,
@@ -236,7 +236,7 @@ namespace Beauty.DataAccess
                                         @OtherInformation,
                                         @IsHaveNasalBone,
                                         @Examinee,
-                                        @Audit,@IsFn)", new
+                                        @Audit,@IsFn,@Area)", new
                             {
                                 SampleNo = patient.SampleNo,
                                 PatientName = patient.PatientName,
@@ -286,7 +286,8 @@ namespace Beauty.DataAccess
                                 IsHaveNasalBone  = patient.IsHaveNasalBone,
                                 Examinee=patient.Examinee,
                                 Audit=patient.Audit,
-                                IsFn = patient.IsFn
+                                IsFn = patient.IsFn,
+                                Area = patient.Area
                             }, transaction);
 
                         //判断是是否添加送检医生
@@ -385,7 +386,8 @@ namespace Beauty.DataAccess
                                         TestValue=@TestValue,
                                         Examinee=@Examinee,
                                         Audit=@Audit,
-                                        IsFn  = @IsFn
+                                        IsFn  = @IsFn,
+                                        Area = @Area
                                         where Id = @Id";
                 con.Execute(sql, new
                 {
@@ -434,6 +436,7 @@ namespace Beauty.DataAccess
                     Examinee = patient.Examinee,
                     Audit = patient.Audit,
                     IsFn = patient.IsFn,
+                    Area = patient.Area,
                     Id = patient.Id
                 }, transaction);
                 #endregion
