@@ -125,7 +125,8 @@ namespace Beauty
             cbDIAB.SelectedIndex = 0; //是否有糖尿病史默认否
             cbAPH.SelectedIndex = 0;//是否有不良孕产史默认否
             cbRAID.SelectedIndex = 3; //人种默认亚洲人
-            chbLMP.IsChecked = true; //默认使用末次月经计算风险
+
+            chbGAWD.IsChecked = true; //默认使用孕周计算
 
         }
 
