@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1070" d:DesignWidth="790" FontSize="13">
     <Canvas Name="reportTemplete2"  Width="790" >
-        <TextBlock Canvas.Left="58" Canvas.Top="30" Height="23" Name="rTitle" Text="中卫市妇幼保健院产前筛查报告单" Width="654" FontWeight="Bold" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
+        <TextBlock Canvas.Left="58" Canvas.Top="30" Height="23" Name="rTitle" Text="中卫市妇幼保健计划生育服务中心" Width="654" FontWeight="Bold" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextAlignment="Center" />
         <TextBlock Canvas.Left="58" Canvas.Top="60" Height="23" Name="rSubTitle" Text="孕中期唐氏综合症筛查结果" Width="654" FontWeight="Bold" FontSize="15" TextAlignment="Center" />
         <TextBlock Canvas.Left="70" Canvas.Top="106" Height="23" Name="textBlock5" Text="姓名:" Width="86" />
         <TextBlock Canvas.Left="160" Canvas.Top="106" Height="23" Name="tbPatientName" Text="" Width="93" />

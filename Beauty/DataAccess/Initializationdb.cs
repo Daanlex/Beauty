@@ -111,7 +111,8 @@ namespace Beauty.DataAccess
                                     TestDate  timestamp(64)  NULL,
                                     TestValue  TEXT(100)  NULL,
                                     CreateDate timestamp(100) NOT NULL,
-                                    IsImportPrisca INTEGER  NULL
+                                    IsImportPrisca INTEGER  NULL,
+                                    PrintCount INTEGER NULL
                                     ); ";
                 const string createInitState = @"CREATE TABLE InitState (
                                     InitState  INTEGER NOT NULL
